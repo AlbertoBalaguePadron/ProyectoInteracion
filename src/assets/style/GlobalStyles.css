@@ -1,0 +1,60 @@
+/* 
+    Header 
+*/
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  width: 430px;
+  height: 110px;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.volver img{
+  width: 70px;
+  height: 70px;
+  margin-right: 20px;
+}
+
+.volver a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #000;
+}
+
+.volver i {
+  margin-right: 5px;
+}
+
+/*
+    Cuerpo para el listado de objetos 
+*/
+
+.bodySelector {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 20vh;
+  }
+  
+  .elemento {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #495764;
+    color: white;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    border-radius: 10px; 
+    font-size: 20px;
+  }
