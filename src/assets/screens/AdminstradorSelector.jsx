@@ -1,35 +1,44 @@
 import Cabecera from "./header/Cabecera.jsx";
 import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
-const AdministradorSelector = () => {
+
+const AdministradorSelector = ({ setEditarDescargar }) => {
+
+
+
+
+    const setEditar_Descargar = (param) => {
+        setEditarDescargar(param)
+    };
 
     return (
-        <div clasName="container">
-            <Cabecera direcion={"#"} />
+        <div className="container">
+            <Cabecera direcion={"/Administrador"} />
 
             <div className="bodySelector">
+                <Link to="/Administrador/Tablas" className="QuitarEstiloEnlace">
+                    <div className="elemento">
+                        <p>Administrar Tablas</p>
+                    </div>
+                </Link>
 
-                <div className="elemento">
-                    <Link to="#">
-                        <p>Manage Tables</p>
-                    </Link>
-                </div>
+                <Link to="/Administrador/Subir_Archivo" className="QuitarEstiloEnlace" >
+                    <Button className="elemento">
+                        Subir Archivo
+                    </Button>
+                </Link>
 
-                <div className="elemento">
-                    <Link to="#">
-                        <p>Upload File</p>
-                    </Link>
-                </div>
-
-                <div className="elemento">
-                    <Link to="#">
-                        <p>Download File</p>
-                    </Link>
-                </div>
+                <Link to="/Administrador/Select" className="QuitarEstiloEnlace" >
+                    <Button className="elemento" onClick={() => setEditar_Descargar("Descargar")}>
+                        Download File
+                    </Button>
+                </Link>
 
             </div>
         </div>
     )
+
 }
 
 export default AdministradorSelector; 

@@ -58,3 +58,9 @@
     border-radius: 10px; 
     font-size: 20px;
   }
+
+
+  .QuitarEstiloEnlace{
+    text-decoration: none;
+    color: white;
+  }
