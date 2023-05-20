@@ -10,7 +10,6 @@ const AdminActualizarDatos = () => {
             <Cabecera direcion={"/Administrador"} />
 
             <div className="bodySelector">
-
                 <p>Holaaaa soy el curso = {curso} y la asignatura = {asignatura} aqui estaran los materiales para descargarlos</p>
 
             </div>

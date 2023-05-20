@@ -20,6 +20,8 @@ const Aplication = () => {
                 <Route path="/Administrador/Tablas" element={<AdminEditor />} ></Route>
 
 
+
+
                 <Route path="/Administrador/Subir_Archivo" element={<SubirArchivo />} ></Route>
                 <Route path="/Administrador/Select" element={<AdminSelectorCurso editarDescargar={editarDescargar} />} ></Route>
                 <Route path="/Administrador/Select_Curso/:id" element={<AdminSelectorAsignatura />}></Route>

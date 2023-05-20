@@ -46,6 +46,21 @@
     margin-top: 20vh;
   }
   
+  
+.bodyDescarga {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+
+  .QuitarEstiloEnlace{
+    text-decoration: none;
+    color: white;
+  }
+
   .elemento {
     display: flex;
     justify-content: center;
@@ -59,8 +74,3 @@
     font-size: 20px;
   }
 
-
-  .QuitarEstiloEnlace{
-    text-decoration: none;
-    color: white;
-  }

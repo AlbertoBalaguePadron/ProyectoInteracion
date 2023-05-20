@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 
 const AdminSelectorAsignatura = () => {
     const { id } = useParams();
-    console.log("Este es el curso recogido por el enlace => ", id);
 
     const asignaturaPorCurso = [
         { id: 1, title: "Matemáticas" },
@@ -17,19 +16,20 @@ const AdminSelectorAsignatura = () => {
     function contenido() {
         return (
             <div className="bodySelector">
-                {
-                    asignaturaPorCurso.map((elto, idx) => (
-                        <Link to={`/Administrador/Select/${id}/${elto.title}`} className="QuitarEstiloEnlace" key={idx}>
-                            <div className="elemento">
-                                <p>{elto.title}</p>
-                            </div>
-                        </Link>
-                    ))
-                }
-            </div>
+
+                    {
+                        asignaturaPorCurso.map((elto, idx) => (
+                            <Link to={`/Administrador/Select/${id}/${elto.title}`} className="QuitarEstiloEnlace" key={idx}>
+                                <div className="elemento">
+                                    <p>{elto.title}</p>
+                                </div>
+                            </Link>
+                        ))
+                    }
+                </div>
         )
     }
-    
+
 
 
 
