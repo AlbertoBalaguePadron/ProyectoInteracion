@@ -1,0 +1,116 @@
+.SubirData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #495764;
+  color: white;
+  width: 90vh;
+  height: 80vh;
+  border-radius: 20px;
+  font-size: 20px;
+}
+
+.dropZone {
+  background-color: transparent;
+  border-radius: 20px;
+  color: white;
+  border: 2px dashed gray;
+  height: auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 700px;
+}
+
+.dropZone {
+  flex: 1;
+  flex-direction: row;
+  color: white;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 700px;
+}
+
+/*  Selector Curso */
+
+.Selector {
+  padding-top: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.Selector select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.Selector select:hover {
+  border-color: #666;
+}
+
+.Selector select:focus {
+  outline: none;
+  border-color: #333;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Boton */
+
+button {
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: darkred;
+}
+
+.filterZone {
+  background-color: #f0f0f0;
+}
+
+/* Container filter  */
+
+.containerFilter {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+  max-height: 300px; /* Establece una altura máxima para el contenedor */
+  overflow-y: auto; /* Agrega un scroll vertical cuando se supera la altura máxima */
+}
+
+.elementoFilterContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  max-height: 300px; /* Establece una altura máxima para el contenedor */
+  overflow-y: auto; /* Agrega un scroll vertical cuando se supera la altura máxima */
+}
+
+.elementoFilter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #9191ac;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 20px;
+  flex-basis: calc(100% / 6 - 10px); /* Calcula el ancho máximo de cada hijo */
+}
