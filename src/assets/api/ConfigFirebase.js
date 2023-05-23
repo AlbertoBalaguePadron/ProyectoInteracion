@@ -1,7 +1,16 @@
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  getDocs,
+  collection,
+  query, 
+  where
+} from "firebase/firestore";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import "firebase/compat/storage";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBJY3Thg20Kw6DKCnPThbZLeFkPk_x6BzM",
@@ -17,6 +26,9 @@ const firebaseConfig = {
 export const app = firebase.initializeApp(firebaseConfig);
 const db = app.firestore();
 
+
+
+
 // guardar archivos en Storage
 export const storage = getStorage(app);
 
@@ -27,6 +39,9 @@ export async function uploadFile(file, nombreArchivo) {
   return url;
 }
 
+
+
+/*Recoger datos de Firestore*/
 export async function getList() {
   const result = await db.collection("Filtros").get();
   return result;
@@ -34,3 +49,35 @@ export async function getList() {
   // console.log(list);
   // return list;
 }
+
+export async function getListByID(id) {
+  const docRef = doc(getFirestore(), "TablaURLS", id);
+  const docSnapshot = await getDoc(docRef);
+  const data = {
+    id: docSnapshot.id,
+    Url: docSnapshot.data().Url,
+    url: docSnapshot.data().url,
+    nombre: docSnapshot.data().nombre,
+    filtros: docSnapshot.data().filtros,
+  };
+  return data;
+}
+
+export async function getAllList(link) {
+  const queryCollection = collection(getFirestore(), "TablaURLS");
+  const queryFilter = query(queryCollection, where('Url', '==', link));
+  const querySnapshot = await getDocs(queryFilter);
+
+
+  const result = querySnapshot.docs.map((target) => ({
+    id: target.id,
+    Url: target.data().Url,
+    url: target.data().url,
+    nombre: target.data().nombre,
+    filtros: target.data().filtros,
+  }));
+
+  
+  return result;
+}
+

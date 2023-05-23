@@ -3,29 +3,27 @@ import '../style/SubirStyle.css';
 import Cabecera from "./header/Cabecera.jsx";
 import React, { useEffect, useState } from "react";
 import { app, uploadFile } from '../api/ConfigFirebase.js';
-import { getList } from '../api/ConfigFirebase.js';
+import { getList } from '../api/ConfigFirebase.js'; 
 
-const SubirArchivo = () => {
 
-    /** Eliminar warnings relacionados con el DropZone */
-    console.warn = () => { };
+const SubirArchivo = ({enlace}) => {
 
 
     // const [selectedFile, setSelectedFile] = useState('');
     // const [curso, setcurso] = useState('');
     // const [asignatura, setAsignatura] = useState('');
-    // const [archivoUrl, setArchivoUrl] = useState('')ç
+    // const [archivoUrl, setArchivoUrl] = useState('');
 
     const [datafilter, setDatafilter] = useState();
 
 
     const recogerFilter = async () => {
         const list = await getList();
-        let listaFiltro = []; 
-            list.forEach((doc) => {
-                listaFiltro.push(doc.data().filtro);
-            });
-            setDatafilter(listaFiltro); 
+        let listaFiltro = [];
+        list.forEach((doc) => {
+            listaFiltro.push(doc.data().filtro);
+        });
+        setDatafilter(listaFiltro);
     }
 
 
@@ -37,18 +35,15 @@ const SubirArchivo = () => {
         const urlArchivo = await uploadFile(file, urlCreate + file.name);
         const collectionRef = app.firestore()
             .collection("TablaURLS");
-
-        await collectionRef.doc(file.name)
+        await collectionRef.doc()
             .set({ nombre: file.name, url: urlArchivo, filtros: filtros, Url: urlCreate });
-
-            window.location.reload();
+        window.location.reload();
 
     }
 
-
     return (
         <div className="container">
-            <Cabecera direcion={"/Administrador"} />
+            <Cabecera direcion={"/" + enlace} />
             <div className="bodyDescarga">
                 <FormularioSubirActualizar addOrEdit={addFile} datafilter={datafilter} />
             </div>
