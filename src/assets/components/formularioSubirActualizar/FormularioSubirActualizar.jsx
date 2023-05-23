@@ -64,6 +64,7 @@ const FormularioSubirActualizar = ({ addOrEdit, datafilter }) => {
     return (
 
         <div className="SubirData">
+
             <form>
 
                 <div className="dropZone" >
