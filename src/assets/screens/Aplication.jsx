@@ -8,6 +8,7 @@ import SubirArchivo from './SubirArchivo.jsx';
 import AdminEditor from './AdminEditor.jsx';
 import AdminActualizarDatos from './AdminActualizarDatos.jsx'; 
 import UsuarioSelector from "./UsuarioSelector.jsx";
+import Login from "./Login.jsx";
 
 
 const Aplication = () => {
@@ -18,31 +19,32 @@ const Aplication = () => {
         <div className="container">
             <Routes>
                 {/*  LOGIN  */}
+                <Route path="/" element={<Login/>} />
 
 
 
 
                 {/* Versión del Usuario */}
 
-                <Route path="/Usuario" element={<UsuarioSelector />} ></Route>
+                <Route path="/usuario" element={<UsuarioSelector />} ></Route>
 
-                <Route path="/Usuario/Subir_Archivo" element={<SubirArchivo enlace={"Usuario"} />} ></Route>
-                <Route path="/Usuario/Select" element={<AdminSelectorCurso editarDescargar={editarDescargar} enlace={"Usuario"}/>} ></Route>
-                <Route path="/Usuario/Select/:id" element={<AdminSelectorAsignatura enlace={'Usuario'} redireccion={"/Usuario/Select"}/>}></Route>
-                <Route path="/Usuario/Select_Download/:curso/:asignatura" element={<AdminDescargarDatos enlace={'/Usuario'}/>} ></Route>
+                <Route path="/usuario/Subir_Archivo" element={<SubirArchivo enlace={"usuario"} />} />
+                <Route path="/usuario/Select" element={<AdminSelectorCurso editarDescargar={editarDescargar} enlace={"usuario"}/>} />
+                <Route path="/usuario/Select/:id" element={<AdminSelectorAsignatura enlace={'usuario'} redireccion={"/usuario/Select"}/>} />
+                <Route path="/usuario/Select_Download/:curso/:asignatura" element={<AdminDescargarDatos enlace={'/usuario'}/>} ></Route>
 
 
 
                 {/* Versión del Administrador */}
 
-                <Route path="/Administrador" element={<AdministradorSelector setEditarDescargar={setEditarDescargar} />} ></Route>
+                <Route path="/Administrador" element={<AdministradorSelector setEditarDescargar={setEditarDescargar} />} />
                 
                 
                 <Route path="/Administrador/Tablas" element={<AdminEditor />} ></Route>
                 <Route path="/Administrador/Subir_Archivo" element={<SubirArchivo enlace={"Administrador"}/>} ></Route>
-                <Route path="/Administrador/Select" element={<AdminSelectorCurso editarDescargar={editarDescargar} enlace={"Administrador"} />} ></Route>
-                <Route path="/Administrador/Select_Curso/:id" element={<AdminSelectorAsignatura enlace={'Administrador'} redireccion={'/Administrador/Select'} />}></Route>
-                <Route path="/Administrador/Select_Download/:curso/:asignatura" element={<AdminDescargarDatos enlace={'/Administrador'} />} ></Route>
+                <Route path="/Administrador/Select" element={<AdminSelectorCurso editarDescargar={editarDescargar} enlace={"Administrador"} />} />
+                <Route path="/Administrador/Select_Curso/:id" element={<AdminSelectorAsignatura enlace={'Administrador'} redireccion={'/Administrador/Select'} />} />
+                <Route path="/Administrador/Select_Download/:curso/:asignatura" element={<AdminDescargarDatos enlace={'/Administrador'} />} />
 
 
 
