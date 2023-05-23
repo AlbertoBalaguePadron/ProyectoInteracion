@@ -5,21 +5,28 @@ import '../style/GlobalStyles.css';
 
 
 
-const AdminSelectorCurso = ({ editarDescargar }) => {
+const AdminSelectorCurso = ({ editarDescargar, enlace }) => {
 
   let url = "";
+  if (enlace === "User") {
 
-  if (editarDescargar === "Editar") {
-    url = "/Administrador/Select/";
+    url = "/Usuario/Select_Curso/"
 
-  } else if (editarDescargar === "Descargar") {
-    url = "/Administrador/Select_Curso/";
+  } else if (enlace === "Administrador") {
+
+    if (editarDescargar === "Editar") {
+      url = "/Administrador/Select/";
+
+    } else if (editarDescargar === "Descargar") {
+      url = "/Administrador/Select_Curso/";
+    }
+
   }
 
 
   return (
     <div className="container">
-      <Cabecera direcion={"/Administrador"} />
+      <Cabecera direcion={"/"+ enlace} />
 
 
       <div className="TextCenter"> Cursos</div>

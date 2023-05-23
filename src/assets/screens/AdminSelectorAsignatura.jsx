@@ -1,7 +1,7 @@
 import Cabecera from "./header/Cabecera.jsx";
 import { Link, useParams } from "react-router-dom";
 
-const AdminSelectorAsignatura = () => {
+const AdminSelectorAsignatura = ({enlace, redireccion}) => {
     const { id } = useParams();
 
     const asignaturaPorCurso = [
@@ -23,7 +23,7 @@ const AdminSelectorAsignatura = () => {
 
                     {
                         asignaturaPorCurso.map((elto, idx) => (
-                            <Link to={`/Administrador/Select_Download/${id}/${elto.url}`} className="QuitarEstiloEnlace" key={idx}>
+                            <Link to={`/${enlace}/Select_Download/${id}/${elto.url}`} className="QuitarEstiloEnlace" key={idx}>
                                 <div className="elemento">
                                     <p>{elto.title}</p>
                                 </div>
@@ -40,7 +40,7 @@ const AdminSelectorAsignatura = () => {
 
     return (
         <div className="container">
-            <Cabecera direcion={"/Administrador/Select"} />
+            <Cabecera direcion={redireccion} />
 
             {contenido()}
 

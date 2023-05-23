@@ -7,6 +7,7 @@ import AdminSelectorCurso from './AdminSelectorCurso.jsx';
 import SubirArchivo from './SubirArchivo.jsx';
 import AdminEditor from './AdminEditor.jsx';
 import AdminActualizarDatos from './AdminActualizarDatos.jsx'; 
+import UsuarioSelector from "./UsuarioSelector.jsx";
 
 
 const Aplication = () => {
@@ -16,22 +17,38 @@ const Aplication = () => {
     return (
         <div className="container">
             <Routes>
-                {/* <Route path="/" element={<Login/>} ></Route> */}
+                {/*  LOGIN  */}
+
+
+
+
+                {/* Versión del Usuario */}
+
+                <Route path="/Usuario" element={<UsuarioSelector />} ></Route>
+
+                <Route path="/Usuario/Subir_Archivo" element={<SubirArchivo enlace={"Usuario"} />} ></Route>
+                <Route path="/Usuario/Select" element={<AdminSelectorCurso editarDescargar={editarDescargar} enlace={"Usuario"}/>} ></Route>
+                <Route path="/Usuario/Select/:id" element={<AdminSelectorAsignatura enlace={'Usuario'} redireccion={"/Usuario/Select"}/>}></Route>
+                <Route path="/Usuario/Select_Download/:curso/:asignatura" element={<AdminDescargarDatos enlace={'/Usuario'}/>} ></Route>
+
+
+
+                {/* Versión del Administrador */}
+
                 <Route path="/Administrador" element={<AdministradorSelector setEditarDescargar={setEditarDescargar} />} ></Route>
+                
+                
                 <Route path="/Administrador/Tablas" element={<AdminEditor />} ></Route>
-
-                <Route path="/Administrador/Subir_Archivo" element={<SubirArchivo />} ></Route>
-
-
-                <Route path="/Administrador/Select" element={<AdminSelectorCurso editarDescargar={editarDescargar} />} ></Route>
-                <Route path="/Administrador/Select_Curso/:id" element={<AdminSelectorAsignatura />}></Route>
-                <Route path="/Administrador/Select_Download/:curso/:asignatura" element={<AdminDescargarDatos />} ></Route>
+                <Route path="/Administrador/Subir_Archivo" element={<SubirArchivo enlace={"Administrador"}/>} ></Route>
+                <Route path="/Administrador/Select" element={<AdminSelectorCurso editarDescargar={editarDescargar} enlace={"Administrador"} />} ></Route>
+                <Route path="/Administrador/Select_Curso/:id" element={<AdminSelectorAsignatura enlace={'Administrador'} redireccion={'/Administrador/Select'} />}></Route>
+                <Route path="/Administrador/Select_Download/:curso/:asignatura" element={<AdminDescargarDatos enlace={'/Administrador'} />} ></Route>
 
 
 
 
 
-                {/* Rutas enlace  */}
+                {/* Rutas ACtualizar  */}
                 {/* <Route path="/Administrador/Select/:curso/:asignatura" element={<AdminActualizarDatos />} ></Route> */}
                 
 

@@ -6,7 +6,7 @@ import { app, uploadFile } from '../api/ConfigFirebase.js';
 import { getList } from '../api/ConfigFirebase.js'; 
 
 
-const SubirArchivo = () => {
+const SubirArchivo = ({enlace}) => {
 
 
     // const [selectedFile, setSelectedFile] = useState('');
@@ -43,7 +43,7 @@ const SubirArchivo = () => {
 
     return (
         <div className="container">
-            <Cabecera direcion={"/Administrador"} />
+            <Cabecera direcion={"/" + enlace} />
             <div className="bodyDescarga">
                 <FormularioSubirActualizar addOrEdit={addFile} datafilter={datafilter} />
             </div>

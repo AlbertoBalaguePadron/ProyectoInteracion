@@ -2,13 +2,13 @@ import '../style/DescargarStyle.css';
 import Cabecera from "./header/Cabecera.jsx";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { getAllList, getListByID } from '../api/ConfigFirebase.js';
+import { getAllList } from '../api/ConfigFirebase.js';
 
 
-const AdminActualizarDatos = () => {
+const AdminActualizarDatos = ({ enlace }) => {
+
     const { curso, asignatura } = useParams();
     const [listAllData, setListAllData] = useState();
-
     useEffect(() => {
         const recogerDatos = async () => {
             try {
@@ -26,7 +26,7 @@ const AdminActualizarDatos = () => {
 
 
 
-    
+
     function pdfOImagen(nombre, url) {
         if (nombre.slice(-3) === "pdf") {
             return (
@@ -45,26 +45,12 @@ const AdminActualizarDatos = () => {
             );
         } else {
             return (
-                <div>
-                    <img className="imagenPrevisualizacion" src={url} alt="Previsualización de la imagen" onClick={()=> DescargarArchivo(url,nombre)}/>
-                </div>
+                <a href={url} title={nombre} download={nombre}>
+                    <img className="imagenPrevisualizacion" src={url} alt="Previsualización de la imagen" />
+                </ a>
             );
         }
     }
-
-
-
-    const DescargarArchivo = (url, nombreArchivo) => {
-
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = nombreArchivo;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);      };
-
-
-
 
     function mostrarContenido() {
 
@@ -85,14 +71,14 @@ const AdminActualizarDatos = () => {
 
     return (
         <div>
-            <Cabecera direcion={"/Administrador"} />
+            <Cabecera direcion={enlace} />
 
             <div className="bodySelector">
-                    {listAllData ? (
-                        mostrarContenido()
-                    ) : (
-                        <p>No hay datos para mostrarlos</p>
-                    )}
+                {listAllData ? (
+                    mostrarContenido()
+                ) : (
+                    <p>No hay datos para mostrarlos</p>
+                )}
             </div>
         </div>
     )
