@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AdministradorSelector from './AdminstradorSelector.jsx';
 import AdminSelectorAsignatura from './AdminSelectorAsignatura.jsx';
 import AdminDescargarDatos from './AdminDescargarDatos.jsx';
