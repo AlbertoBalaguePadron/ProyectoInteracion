@@ -43,7 +43,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    margin-top: 20vh;
+    margin-top: 15vh;
   }
   
   
@@ -74,3 +74,9 @@
     font-size: 20px;
   }
 
+  .TextCenter{
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10vh; 
+    font-size: 40px;
+  }

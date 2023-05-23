@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { Routes, Route } from 'react-router-dom';
 import AdministradorSelector from './AdminstradorSelector.jsx';
 import AdminSelectorAsignatura from './AdminSelectorAsignatura.jsx';
-import AdminActualizarDatos from './AdminActualizarDatos.jsx';
+import AdminDescargarDatos from './AdminDescargarDatos.jsx';
 import AdminSelectorCurso from './AdminSelectorCurso.jsx';
 import SubirArchivo from './SubirArchivo.jsx';
-import AdminEditor from './AdminEditor.jsx'; 
+import AdminEditor from './AdminEditor.jsx';
+import AdminActualizarDatos from './AdminActualizarDatos.jsx'; 
 
 
 const Aplication = () => {
@@ -19,13 +20,20 @@ const Aplication = () => {
                 <Route path="/Administrador" element={<AdministradorSelector setEditarDescargar={setEditarDescargar} />} ></Route>
                 <Route path="/Administrador/Tablas" element={<AdminEditor />} ></Route>
 
-
-
-
                 <Route path="/Administrador/Subir_Archivo" element={<SubirArchivo />} ></Route>
+
+
                 <Route path="/Administrador/Select" element={<AdminSelectorCurso editarDescargar={editarDescargar} />} ></Route>
                 <Route path="/Administrador/Select_Curso/:id" element={<AdminSelectorAsignatura />}></Route>
-                <Route path="/Administrador/Select/:curso/:asignatura" element={<AdminActualizarDatos />} ></Route>
+                <Route path="/Administrador/Select_Download/:curso/:asignatura" element={<AdminDescargarDatos />} ></Route>
+
+
+
+
+
+                {/* Rutas enlace  */}
+                {/* <Route path="/Administrador/Select/:curso/:asignatura" element={<AdminActualizarDatos />} ></Route> */}
+                
 
 
 

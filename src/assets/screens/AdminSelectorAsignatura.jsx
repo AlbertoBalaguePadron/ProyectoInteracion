@@ -5,21 +5,25 @@ const AdminSelectorAsignatura = () => {
     const { id } = useParams();
 
     const asignaturaPorCurso = [
-        { id: 1, title: "Matemáticas" },
-        { id: 2, title: "Lengua" },
-        { id: 3, title: "Sociales" },
-        { id: 4, title: "Naturales" },
-        { id: 5, title: "Educación física" },
-        { id: 6, title: "Religión" },
+        { id: 1, title: "Matemáticas", url:"Matematicas" },
+        { id: 2, title: "Lengua", url:"Lengua" },
+        { id: 3, title: "Sociales", url:"Sociales" },
+        { id: 4, title: "Naturales", url:"Naturales" },
+        { id: 5, title: "Educación física", url:"Educacion_Fisica" },
+        { id: 6, title: "Religión", url:"Religion" },
     ];
 
     function contenido() {
         return (
-            <div className="bodySelector">
+            <div>
+
+                <div className="TextCenter">Asignatura</div>
+
+                <div className="bodySelector" >
 
                     {
                         asignaturaPorCurso.map((elto, idx) => (
-                            <Link to={`/Administrador/Select/${id}/${elto.title}`} className="QuitarEstiloEnlace" key={idx}>
+                            <Link to={`/Administrador/Select_Download/${id}/${elto.url}`} className="QuitarEstiloEnlace" key={idx}>
                                 <div className="elemento">
                                     <p>{elto.title}</p>
                                 </div>
@@ -27,6 +31,7 @@ const AdminSelectorAsignatura = () => {
                         ))
                     }
                 </div>
+            </div>
         )
     }
 
