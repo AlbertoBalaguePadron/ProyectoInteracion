@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 
-const AdminEditor = () => {
+const AdminEditor = ({setEditarDescargar}) => {
 
-    const setEditar_Descargar = (param) => {
-        // setEditarDescargar(param)
+    const setEditar_Descargar = (data) => {
+        setEditarDescargar(data)
     };
 
     return (
@@ -26,6 +26,7 @@ const AdminEditor = () => {
                         Editar Archivos 
                     </Button>
                 </Link>
+
 
             </div>
         </div>

@@ -81,3 +81,11 @@ export async function getAllList(link) {
   return result;
 }
 
+
+export async function dropDataMAterial(id){
+
+  db.collection('TablaURLS').doc(id).delete(); 
+  return true; 
+
+}
+

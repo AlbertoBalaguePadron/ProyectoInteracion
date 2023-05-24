@@ -1,24 +1,105 @@
+import '../style/EditStyle.css';
 import Cabecera from "./header/Cabecera.jsx";
 import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { getAllList, dropDataMAterial } from '../api/ConfigFirebase.js';
+import imagenBorrar from '../img/ImagenBorrar.png';
 
-const AdminActualizarDatos = () => {
+const AdminActualizarDatos = ({ enlace }) => {
+
     const { curso, asignatura } = useParams();
+    const [listAllData, setListAllData] = useState();
+    useEffect(() => {
+        const recogerDatos = async () => {
+            try {
+                const urlDirection = '/' + curso + '/' + asignatura + '/';
+                const allData = await getAllList(urlDirection);
+                setListAllData(allData);
+
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        recogerDatos();
+
+    }, []);
+
+    const HandleDelete = async (id) => {
+        if (window.confirm("Estas seguro de querer eliminar el material ??")) {
+            const res = await dropDataMAterial(id);
+            if (res) {
+                setTimeout(function () {
+                    window.location.reload();
+                }, 1000);
+            }
+        }
+    }
+
+
+
+
+    function pdfOImagen(nombre, url, id) {
+        if (nombre.slice(-3) === "pdf") {
+            return (
+                <div >
+                    <object
+                        data={url}
+                        type="application/pdf"
+                        width="100%"
+                        height="300px"
+                    >
+                        <p>
+                            No se puede mostrar el PDF. Puedes <a href={url}>Visualizarlo aquí</a>.
+                        </p>
+                    </object>
+                </div>
+            );
+        } else {
+            return (
+                <a href={url} title={nombre} >
+                    <img className="imagenPrevisualizacion" src={url} alt="Previsualización de la imagen" />
+                </ a>
+            );
+        }
+    }
+
+    function mostrarContenido() {
+
+        return (
+            <div className="element-container">
+                {listAllData.map((item) => (
+                    <div className="element" key={item.id} onClick={() => { console.log("Holaa soy => ", item.id) }}>
+                        <>{pdfOImagen(item.nombre, item.url, item.id)}</>
+                        <h3>{item.nombre}</h3>
+                        <p> ID: {item.id}</p>
+                        <p>#{item.filtros.join(" #")}</p>
+                        <div>
+                            <div>
+                                <button>EDITAR</button>
+                            </div>
+                            <img src={imagenBorrar} alt="" className='imgDelete' onClick={() => HandleDelete(item.id)} />
+                        </div>
+                    </div>
+                ))}
+            </div>
+        );
+    }
+
 
 
     return (
-        <div className="container">
-            <Cabecera direcion={"/Administrador"} />
+        <div>
+            <Cabecera direcion={enlace} />
 
             <div className="bodySelector">
-                <p>Holaaaa soy el curso = {curso} y la asignatura = {asignatura} aqui estaran los materiales para actualizarlos</p>
-
-                {/* <div className="elemento">
-                    <p>{elto.title}</p>
-                </div> */}
-
+                {listAllData ? (
+                    mostrarContenido()
+                ) : (
+                    <p>No hay datos para mostrarlos</p>
+                )}
             </div>
         </div>
     )
 }
 
-export default AdminActualizarDatos; 
+export default AdminActualizarDatos;

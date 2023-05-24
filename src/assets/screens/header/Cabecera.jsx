@@ -8,7 +8,7 @@ function Cabecera({ direcion }) {
     return (
         <div className="navbar">
             <div className="logo">
-                <img src={logoImage} alt="" />
+                {/* <img src={logoImage} alt="" /> */}
             </div>
             <div className="volver">
                 <Link to={direcion}>

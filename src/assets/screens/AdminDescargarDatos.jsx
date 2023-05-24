@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { getAllList } from '../api/ConfigFirebase.js';
 
 
-const AdminActualizarDatos = ({ enlace }) => {
+const AdminDescargarDatos = ({ enlace }) => {
 
     const { curso, asignatura } = useParams();
     const [listAllData, setListAllData] = useState();
@@ -84,4 +84,4 @@ const AdminActualizarDatos = ({ enlace }) => {
     )
 }
 
-export default AdminActualizarDatos;
+export default AdminDescargarDatos;
