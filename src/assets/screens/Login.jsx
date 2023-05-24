@@ -2,6 +2,7 @@ import { useState } from "react";
 import { auth, signInWithEmailAndPassword } from "../api/ConfigFirebase";
 import logo from "../img/logo.png";
 import { useNavigate } from "react-router-dom";
+import "../style/Login.css"
 
 function Login() {
   const [email, setEmail] = useState("");
