@@ -3,23 +3,23 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 
-const AdminEditor = () => {
+const UserSelector = () => {
 
     return (
         <div className="container">
-            <Cabecera direcion={"/Administrador"} />
+            <Cabecera direcion={"/usuario"} />
 
             <div className="bodySelector">
-                <Link to="/administrador/usuarios" className="QuitarEstiloEnlace">
-                <Button className="elemento">
-                        Usarios
+
+                <Link to="/usuario/Subir_Archivo" className="QuitarEstiloEnlace" >
+                    <Button className="elemento">
+                        Subir Archivo
                     </Button>
                 </Link>
 
-
-                <Link to="/administrador/Select" className="QuitarEstiloEnlace" >
+                <Link to="/usuario/Select" className="QuitarEstiloEnlace" >
                     <Button className="elemento">
-                        Editar Archivos 
+                        Download File
                     </Button>
                 </Link>
 
@@ -29,4 +29,4 @@ const AdminEditor = () => {
 
 }
 
-export default AdminEditor; 
+export default UserSelector; 
