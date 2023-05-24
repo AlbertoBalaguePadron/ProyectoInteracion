@@ -22,9 +22,6 @@ const Aplication = () => {
                 {/*  LOGIN  */}
                 <Route path="/" element={<Login/>} />
 
-
-
-
                 {/* Versión del Usuario */}
 
                 <Route path="/usuario" element={<UserSelector />} ></Route>
@@ -34,12 +31,9 @@ const Aplication = () => {
                 <Route path="/usuario/Select/:id" element={<AdminSelectorAsignatura enlace={'usuario'} redireccion={"/usuario/Select"}/>} />
                 <Route path="/usuario/Select_Download/:curso/:asignatura" element={<AdminDescargarDatos enlace={'/usuario'}/>} ></Route>
 
-
-
                 {/* Versión del Administrador */}
 
                 <Route path="/administrador" element={<AdministradorSelector setEditarDescargar={setEditarDescargar} />} />
-                
                 
 
                 <Route path="/Administrador/tablas" element={<AdminEditor />} ></Route>
@@ -53,15 +47,9 @@ const Aplication = () => {
                 <Route path="/Administrador/Select_Download/:curso/:asignatura" element={<AdminDescargarDatos enlace={'/Administrador'} />} />
 
 
-
-
-
                 {/* Rutas ACtualizar  */}
                 {/* <Route path="/Administrador/Select/:curso/:asignatura" element={<AdminActualizarDatos />} ></Route> */}
                 
-
-
-
 
             </Routes>
         </div>
