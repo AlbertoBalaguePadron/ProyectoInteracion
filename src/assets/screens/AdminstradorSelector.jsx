@@ -14,22 +14,22 @@ const AdministradorSelector = ({ setEditarDescargar }) => {
 
     return (
         <div className="container">
-            <Cabecera direcion={"/Administrador"} />
+            <Cabecera direcion={"/administrador"} />
 
             <div className="bodySelector">
-                <Link to="/Administrador/Tablas" className="QuitarEstiloEnlace">
-                    <div className="elemento">
-                        <p>Administrar Tablas</p>
-                    </div>
+                <Link to="/administrador/tablas" className="QuitarEstiloEnlace">
+                <Button className="elemento">
+                        Administrar Tablas
+                    </Button>
                 </Link>
 
-                <Link to="/Administrador/Subir_Archivo" className="QuitarEstiloEnlace" >
+                <Link to="/administrador/Subir_Archivo" className="QuitarEstiloEnlace" >
                     <Button className="elemento">
                         Subir Archivo
                     </Button>
                 </Link>
 
-                <Link to="/Administrador/Select" className="QuitarEstiloEnlace" >
+                <Link to="/administrador/Select" className="QuitarEstiloEnlace" >
                     <Button className="elemento" onClick={() => setEditar_Descargar("Descargar")}>
                         Download File
                     </Button>

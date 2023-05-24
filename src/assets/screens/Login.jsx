@@ -18,7 +18,7 @@ function Login() {
         const isAdmin = user.email === "sergio@gmail.com";
 
         if (isAdmin) {
-          navigate("/admin");
+          navigate("/administrador");
         } else {
           navigate("/usuario");
         }

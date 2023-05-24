@@ -37,10 +37,10 @@ const Aplication = () => {
 
                 {/* Versión del Administrador */}
 
-                <Route path="/Administrador" element={<AdministradorSelector setEditarDescargar={setEditarDescargar} />} />
+                <Route path="/administrador" element={<AdministradorSelector setEditarDescargar={setEditarDescargar} />} />
                 
                 
-                <Route path="/Administrador/Tablas" element={<AdminEditor />} ></Route>
+                <Route path="/Administrador/tablas" element={<AdminEditor />} ></Route>
                 <Route path="/Administrador/Subir_Archivo" element={<SubirArchivo enlace={"Administrador"}/>} ></Route>
                 <Route path="/Administrador/Select" element={<AdminSelectorCurso editarDescargar={editarDescargar} enlace={"Administrador"} />} />
                 <Route path="/Administrador/Select_Curso/:id" element={<AdminSelectorAsignatura enlace={'Administrador'} redireccion={'/Administrador/Select'} />} />
