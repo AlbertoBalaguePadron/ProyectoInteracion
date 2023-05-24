@@ -7,8 +7,9 @@ import AdminSelectorCurso from './AdminSelectorCurso.jsx';
 import SubirArchivo from './SubirArchivo.jsx';
 import AdminEditor from './AdminEditor.jsx';
 import AdminActualizarDatos from './AdminActualizarDatos.jsx'; 
-import UsuarioSelector from "./UsuarioSelector.jsx";
+import UserSelector from "./UserSelector.jsx";
 import Login from "./Login.jsx";
+import MenuAdminUser from "./MenuAdminUser.jsx";
 
 
 const Aplication = () => {
@@ -26,7 +27,7 @@ const Aplication = () => {
 
                 {/* Versión del Usuario */}
 
-                <Route path="/usuario" element={<UsuarioSelector />} ></Route>
+                <Route path="/usuario" element={<UserSelector />} ></Route>
 
                 <Route path="/usuario/Subir_Archivo" element={<SubirArchivo enlace={"usuario"} />} />
                 <Route path="/usuario/Select" element={<AdminSelectorCurso editarDescargar={editarDescargar} enlace={"usuario"}/>} />
@@ -40,7 +41,12 @@ const Aplication = () => {
                 <Route path="/administrador" element={<AdministradorSelector setEditarDescargar={setEditarDescargar} />} />
                 
                 
+
                 <Route path="/Administrador/tablas" element={<AdminEditor />} ></Route>
+
+                <Route path="/Administrador/Tablas" element={<AdminEditor />} ></Route>
+                <Route path="/administrador/usuarios" element={<MenuAdminUser/>}></Route>
+
                 <Route path="/Administrador/Subir_Archivo" element={<SubirArchivo enlace={"Administrador"}/>} ></Route>
                 <Route path="/Administrador/Select" element={<AdminSelectorCurso editarDescargar={editarDescargar} enlace={"Administrador"} />} />
                 <Route path="/Administrador/Select_Curso/:id" element={<AdminSelectorAsignatura enlace={'Administrador'} redireccion={'/Administrador/Select'} />} />

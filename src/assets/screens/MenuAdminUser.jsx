@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 
-const UsuarioSelector = () => {
+const MenuAdminUser = () => {
 
     return (
         <div className="container">
@@ -11,15 +11,15 @@ const UsuarioSelector = () => {
 
             <div className="bodySelector">
 
-                <Link to="/usuario/Subir_Archivo" className="QuitarEstiloEnlace" >
+                <Link to="/administrador/usuarios/aniadirusuario" className="QuitarEstiloEnlace" >
                     <Button className="elemento">
-                        Subir Archivo
+                        Añadir Usuario 
                     </Button>
                 </Link>
 
-                <Link to="/usuario/Select" className="QuitarEstiloEnlace" >
+                <Link to="/administrador/usuarios/verusuarios" className="QuitarEstiloEnlace" >
                     <Button className="elemento">
-                        Download File
+                        Tabla de Usuarios 
                     </Button>
                 </Link>
 
@@ -29,4 +29,4 @@ const UsuarioSelector = () => {
 
 }
 
-export default UsuarioSelector; 
+export default MenuAdminUser; 
