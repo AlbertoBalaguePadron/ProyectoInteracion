@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import AdministradorSelector from './AdminstradorSelector.jsx';
 import AdminSelectorAsignatura from './AdminSelectorAsignatura.jsx';
 import AdminDescargarDatos from './AdminDescargarDatos.jsx';
 import AdminSelectorCurso from './AdminSelectorCurso.jsx';
 import SubirArchivo from './SubirArchivo.jsx';
-import AdminActualizarDatos from './AdminActualizarDatos.jsx'; 
 import UserSelector from "./UserSelector.jsx";
 import Login from "./Login.jsx";
 import MenuAdminUser from "./MenuAdminUser.jsx";
@@ -37,7 +36,7 @@ const Aplication = () => {
                 
 
 
-                <Route path="/Administrador/tablas" element={<MenuTables />} ></Route>
+                <Route path="/Administrador/tablas" element={<MenuTables/>} ></Route>
 
                 <Route path="/administrador/usuarios" element={<MenuAdminUser/>}></Route>
 
