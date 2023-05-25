@@ -5,11 +5,11 @@ import AdminSelectorAsignatura from './AdminSelectorAsignatura.jsx';
 import AdminDescargarDatos from './AdminDescargarDatos.jsx';
 import AdminSelectorCurso from './AdminSelectorCurso.jsx';
 import SubirArchivo from './SubirArchivo.jsx';
-import AdminEditor from './AdminEditor.jsx';
 import AdminActualizarDatos from './AdminActualizarDatos.jsx'; 
 import UserSelector from "./UserSelector.jsx";
 import Login from "./Login.jsx";
 import MenuAdminUser from "./MenuAdminUser.jsx";
+import MenuTables from "./MenuTables.jsx";
 
 
 const Aplication = () => {
@@ -36,9 +36,9 @@ const Aplication = () => {
                 <Route path="/administrador" element={<AdministradorSelector setEditarDescargar={setEditarDescargar} />} />
                 
 
-                <Route path="/Administrador/tablas" element={<AdminEditor />} ></Route>
 
-                <Route path="/Administrador/Tablas" element={<AdminEditor />} ></Route>
+                <Route path="/Administrador/tablas" element={<MenuTables />} ></Route>
+
                 <Route path="/administrador/usuarios" element={<MenuAdminUser/>}></Route>
 
                 <Route path="/Administrador/Subir_Archivo" element={<SubirArchivo enlace={"Administrador"}/>} ></Route>

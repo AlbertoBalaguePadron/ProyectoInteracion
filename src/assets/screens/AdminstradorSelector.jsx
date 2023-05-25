@@ -5,9 +5,6 @@ import { Button } from "react-bootstrap";
 
 const AdministradorSelector = ({ setEditarDescargar }) => {
 
-
-
-
     const setEditar_Descargar = (param) => {
         setEditarDescargar(param)
     };
@@ -34,11 +31,9 @@ const AdministradorSelector = ({ setEditarDescargar }) => {
                         Download File
                     </Button>
                 </Link>
-
             </div>
         </div>
     )
-
 }
 
 export default AdministradorSelector; 
