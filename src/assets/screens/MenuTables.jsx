@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 
-const AdminEditor = () => {
+const MenuTables = () => {
 
     return (
         <div className="container">
@@ -29,4 +29,4 @@ const AdminEditor = () => {
 
 }
 
-export default AdminEditor; 
+export default MenuTables; 
