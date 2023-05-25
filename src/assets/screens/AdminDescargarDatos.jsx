@@ -12,7 +12,7 @@ const AdminDescargarDatos = ({ enlace }) => {
     useEffect(() => {
         const recogerDatos = async () => {
             try {
-                const urlDirection = '/' + curso + '/' + asignatura + '/';
+                const urlDirection =  curso + '/' + asignatura + '/';
                 const allData = await getAllList(urlDirection);
                 setListAllData(allData);
 

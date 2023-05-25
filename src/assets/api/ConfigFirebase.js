@@ -15,6 +15,12 @@ import {
   where,
 } from "firebase/firestore";
 
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
+import "firebase/compat/storage";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBJY3Thg20Kw6DKCnPThbZLeFkPk_x6BzM",
@@ -28,9 +34,14 @@ const firebaseConfig = {
 };
 
 export const app = firebase.initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db = app.firestore();
+
+
 const auth = getAuth(app);
-const firebaseApp = initializeApp(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+export { auth, signInWithEmailAndPassword, db, firebaseApp };
+
 
 // guardar archivos en Storage
 export const storage = getStorage(app);
@@ -88,9 +99,6 @@ export async function dropDataMaterial(id, rutaArhivo, nombreArchivo) {
 }
 
 export async function editDataBase(file, data, newData) {
-
-
-
 
 
 console.log(data);

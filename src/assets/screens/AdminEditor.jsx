@@ -33,3 +33,5 @@ const AdminEditor = ({setEditarDescargar}) => {
     )
 
 }
+
+export default AdminEditor; 
