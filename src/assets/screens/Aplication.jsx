@@ -10,6 +10,8 @@ import UserSelector from "./UserSelector.jsx";
 import Login from "./Login.jsx";
 import MenuAdminUser from "./MenuAdminUser.jsx";
 import MenuTables from "./MenuTables.jsx";
+import SignUpUser from "./SignUpUser.jsx";
+import UserTable from "./UserTable.jsx";
 
 
 const Aplication = () => {
@@ -39,8 +41,8 @@ const Aplication = () => {
                 {/* ADMINISTRAR USUARIOS */}
                 <Route path="/administrador/tablas" element={<MenuTables/>} />
                 <Route path="/administrador/usuarios" element={<MenuAdminUser/>} />
-                <Route path="/administrador/usuarios/aniadirusuario"  />
-                <Route path="/administrador/usuarios/verusuarios"  />
+                <Route path="/administrador/usuarios/aniadirusuario" element={<SignUpUser/>} />
+                <Route path="/administrador/usuarios/verusuarios" element={<UserTable/>} />
 
                 {/* ADMINISTRAR ARCHIVOS */}
                 <Route path="/administrador/subir_Archivo" element={<SubirArchivo enlace={"administrador"}/>} ></Route>

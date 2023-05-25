@@ -2,7 +2,6 @@ import { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Cabecera from "./header/Cabecera.jsx";
 import logo from "../img/logo.png";
-import "../style/AddUser.css";
 
 function SignUpUser() {
   const [email, setEmail] = useState("");
