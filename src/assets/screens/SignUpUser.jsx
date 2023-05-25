@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Cabecera from "./header/Cabecera.jsx";
-import logo from "../img/logo.png";
-import "../style/AddUser.css";
+import "../style/SignUpUser.css"
 
-function AddUser() {
+function SignUpUser() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -22,7 +21,7 @@ function AddUser() {
         setEmail("");
         setPassword("");
       })
-      .catch((error) => {
+      .catch(() => {
         setError("Error al crear la cuenta");
       });
   };
@@ -30,11 +29,11 @@ function AddUser() {
   return (
     <div className="container-signup">
       <Cabecera direcion={"/administrador/opcionesusuarios"} />
-      <img src={logo} alt="Logo" className="img-salesianos" />
       {error && <p>{error}</p>}
       {success && <p>{success}</p>}
+      <h3 className="signup-tittle"> Register a new user </h3>
       <form className="signup-form" onSubmit={handleSubmit}>
-        <label htmlFor="email">Correo electrónico:</label>
+        <label className="signup-label" htmlFor="email">Email:</label>
         <input
           className="input-signup"
           type="email"
@@ -42,7 +41,7 @@ function AddUser() {
           onChange={(event) => setEmail(event.target.value)}
         />
         <br />
-        <label htmlFor="password">Contraseña: </label>
+        <label className="signup-label" htmlFor="password">Password: </label>
         <input
           className="input-signup"
           type="password"
@@ -51,10 +50,10 @@ function AddUser() {
         />
         <br />
         <button className="addUser-button" type="submit">
-          Crear cuenta
+          Sign Up
         </button>
       </form>
     </div>
   );
 }
-export default AddUser;
+export default SignUpUser;

@@ -9,6 +9,8 @@ import UserSelector from "./UserSelector.jsx";
 import Login from "./Login.jsx";
 import MenuAdminUser from "./MenuAdminUser.jsx";
 import MenuTables from "./MenuTables.jsx";
+import SignUpUser from "./SignUpUser.jsx";
+import UserTable from "./UserTable.jsx";
 
 
 const Aplication = () => {
@@ -18,17 +20,23 @@ const Aplication = () => {
     return (
         <div className="container">
             <Routes>
-                {/*  LOGIN  */}
+                {/* LOGIN */}
                 <Route path="/" element={<Login/>} />
+
 
                 {/* Versión del Usuario */}
 
+
+                {/* MENU PRINCIPAL USUARIO */}
+
                 <Route path="/usuario" element={<UserSelector />} ></Route>
 
-                <Route path="/usuario/Subir_Archivo" element={<SubirArchivo enlace={"usuario"} />} />
-                <Route path="/usuario/Select" element={<AdminSelectorCurso editarDescargar={editarDescargar} enlace={"usuario"}/>} />
-                <Route path="/usuario/Select/:id" element={<AdminSelectorAsignatura enlace={'usuario'} redireccion={"/usuario/Select"}/>} />
-                <Route path="/usuario/Select_Download/:curso/:asignatura" element={<AdminDescargarDatos enlace={'/usuario'}/>} ></Route>
+                {/* ACCIONES DE ARCHIVOS */}
+                <Route path="/usuario/subir_Archivo" element={<SubirArchivo enlace={"usuario"} />} />
+                <Route path="/usuario/select" element={<AdminSelectorCurso editarDescargar={editarDescargar} enlace={"usuario"}/>} />
+                <Route path="/usuario/select/:id" element={<AdminSelectorAsignatura enlace={'usuario'} redireccion={"/usuario/select"}/>} />
+                <Route path="/usuario/select_download/:curso/:asignatura" element={<AdminDescargarDatos enlace={'/usuario'}/>} ></Route>
+
 
                 {/* Versión del Administrador */}
 
@@ -46,9 +54,29 @@ const Aplication = () => {
                 <Route path="/Administrador/Select_Download/:curso/:asignatura" element={<AdminDescargarDatos enlace={'/Administrador'} />} />
 
 
+                {/* ******************** */}
+
+                {/* MENU PRINCIPAL ADMINISTRADOR */}
+                <Route path="/administrador" element={<AdministradorSelector setEditarDescargar={setEditarDescargar} />} />
+                
+                {/* ADMINISTRAR USUARIOS */}
+                <Route path="/administrador/tablas" element={<MenuTables/>} />
+                <Route path="/administrador/usuarios" element={<MenuAdminUser/>} />
+                <Route path="/administrador/usuarios/aniadirusuario" element={<SignUpUser/>} />
+                <Route path="/administrador/usuarios/verusuarios" element={<UserTable/>} />
+
+                {/* ADMINISTRAR ARCHIVOS */}
+                <Route path="/administrador/subir_Archivo" element={<SubirArchivo enlace={"administrador"}/>} ></Route>
+                <Route path="/administrador/select" element={<AdminSelectorCurso editarDescargar={editarDescargar} enlace={"administrador"} />} />
+                <Route path="/administrador/select_curso/:id" element={<AdminSelectorAsignatura enlace={'administrador'} redireccion={'/dministrador/select'} />} />
+                <Route path="/administrador/select_download/:curso/:asignatura" element={<AdminDescargarDatos enlace={'/administrador'} />} />
+
+
                 {/* Rutas ACtualizar  */}
                 {/* <Route path="/Administrador/Select/:curso/:asignatura" element={<AdminActualizarDatos />} ></Route> */}
                 
+
+
 
             </Routes>
         </div>

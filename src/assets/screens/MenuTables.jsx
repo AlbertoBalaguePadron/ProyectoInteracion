@@ -17,7 +17,7 @@ const MenuTables = () => {
                 </Link>
 
 
-                <Link to="/administrador/Select" className="QuitarEstiloEnlace" >
+                <Link to="/administrador/select" className="QuitarEstiloEnlace" >
                     <Button className="elemento">
                         Editar Archivos 
                     </Button>

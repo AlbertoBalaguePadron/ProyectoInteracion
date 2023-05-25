@@ -10,15 +10,15 @@ const AdminSelectorCurso = ({ editarDescargar, enlace }) => {
   let url = "";
   if (enlace === "User") {
 
-    url = "/Usuario/Select_Curso/"
+    url = "/usuario/select_curso/"
 
-  } else if (enlace === "Administrador") {
+  } else if (enlace === "administrador") {
 
     if (editarDescargar === "Editar") {
-      url = "/Administrador/Select/";
+      url = "/administrador/select/";
 
     } else if (editarDescargar === "Descargar") {
-      url = "/Administrador/Select_Curso/";
+      url = "/administrador/select_curso/";
     }
 
   }

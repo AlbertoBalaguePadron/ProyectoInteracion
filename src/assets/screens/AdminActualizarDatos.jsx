@@ -7,7 +7,7 @@ const AdminActualizarDatos = () => {
 
     return (
         <div className="container">
-            <Cabecera direcion={"/Administrador"} />
+            <Cabecera direcion={"/administrador"} />
 
             <div className="bodySelector">
                 <p>Holaaaa soy el curso = {curso} y la asignatura = {asignatura} aqui estaran los materiales para actualizarlos</p>

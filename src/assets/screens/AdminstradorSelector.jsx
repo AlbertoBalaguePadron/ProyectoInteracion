@@ -20,13 +20,15 @@ const AdministradorSelector = ({ setEditarDescargar }) => {
                     </Button>
                 </Link>
 
-                <Link to="/administrador/Subir_Archivo" className="QuitarEstiloEnlace" >
+                <Link to="/administrador/subir_Archivo" className="QuitarEstiloEnlace" >
+
                     <Button className="elemento">
                         Subir Archivo
                     </Button>
                 </Link>
 
-                <Link to="/administrador/Select" className="QuitarEstiloEnlace" >
+                <Link to="/administrador/select" className="QuitarEstiloEnlace" >
+
                     <Button className="elemento" onClick={() => setEditar_Descargar("Descargar")}>
                         Download File
                     </Button>
