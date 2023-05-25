@@ -1,36 +1,37 @@
-.App {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 3rem;
+  .login-container {
+    margin-top: 7rem;
   }
-  
-  .logo {
+
+  .img-salesianos {
     width: 15rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
+
+  .login-label {
+    font-size: 0.8rem;
+    margin-bottom: 0.1rem;
+  }
   
-  form {
+  .login-form {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   
-  input {
+  .login-input {
     margin-bottom: 1rem;
     background-color: #e6e6e6;
-    padding: 0.5rem;
-    width: 15rem;
+    padding: 0.3rem;
+    width: 16rem;
     border: 0rem;
     border-radius: 20px;
     text-align: center;
   }
   
-  button {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
+  .login-buton {
+    font-size: 0.8rem;
+    padding: 0.2rem;
     background-color: #fa3535;
     color: white;
     border: none;

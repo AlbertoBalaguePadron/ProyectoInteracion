@@ -18,7 +18,7 @@ function Login() {
         const isAdmin = user.email === "sergio@gmail.com";
 
         if (isAdmin) {
-          navigate("/admin");
+          navigate("/administrador");
         } else {
           navigate("/usuario");
         }
@@ -29,26 +29,28 @@ function Login() {
   };
 
   return (
-    <div className="App">
-      <img src={logo} alt="Logo" className="logo" />
-      <form onSubmit={handleLogin}>
-        <label htmlFor="email">Email:</label>
+    <div className="login-container">
+      <img src={logo} alt="Logo" className="img-salesianos" />
+      <form className="login-form" onSubmit={handleLogin}>
+        <label className="login-label" htmlFor="email">Email:</label>
         <input
+        className="login-input"
           type="email"
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <label htmlFor="password">Password:</label>
+        <label className="login-label" htmlFor="password">Password:</label>
         <input
+        className="login-input"
           type="password"
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button className="buttonn" type="submit">
+        <button className="login-buton" type="submit">
           Login
         </button>
       </form>

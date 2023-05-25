@@ -18,9 +18,9 @@ const AdministradorSelector = ({ setEditarDescargar }) => {
 
             <div className="bodySelector">
                 <Link to="/Administrador/Tablas" className="QuitarEstiloEnlace">
-                    <div className="elemento">
-                        <p>Administrar Tablas</p>
-                    </div>
+                <Button className="elemento">
+                        Administrar Tablas
+                    </Button>
                 </Link>
 
                 <Link to="/Administrador/Subir_Archivo" className="QuitarEstiloEnlace" >
