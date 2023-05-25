@@ -2,17 +2,35 @@ import '../style/EditStyle.css';
 import Cabecera from "./header/Cabecera.jsx";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { getAllList, dropDataMAterial } from '../api/ConfigFirebase.js';
+import { getAllList, dropDataMaterial } from '../api/ConfigFirebase.js';
 import imagenBorrar from '../img/ImagenBorrar.png';
+import Modal from 'react-modal';
+import ActualizarArchivo from './ActualizarArchivo';
+import imagenCerrarModal from '../img/backToFuture.png'
 
 const AdminActualizarDatos = ({ enlace }) => {
 
     const { curso, asignatura } = useParams();
     const [listAllData, setListAllData] = useState();
+    const [showModal, setShowModal] = useState(false);
+    const [idTarget, setIdTarget] = useState();
+
+    const openModal = (item) => {
+        setIdTarget(item);
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setIdTarget('');
+        setShowModal(false);
+    };
+
+
+
     useEffect(() => {
         const recogerDatos = async () => {
             try {
-                const urlDirection = '/' + curso + '/' + asignatura + '/';
+                const urlDirection = curso + '/' + asignatura + '/';
                 const allData = await getAllList(urlDirection);
                 setListAllData(allData);
 
@@ -24,9 +42,9 @@ const AdminActualizarDatos = ({ enlace }) => {
 
     }, []);
 
-    const HandleDelete = async (id) => {
+    const HandleDelete = async (id, url, nombreArchivo) => {
         if (window.confirm("Estas seguro de querer eliminar el material ??")) {
-            const res = await dropDataMAterial(id);
+            const res = await dropDataMaterial(id, url, nombreArchivo);
             if (res) {
                 setTimeout(function () {
                     window.location.reload();
@@ -38,7 +56,7 @@ const AdminActualizarDatos = ({ enlace }) => {
 
 
 
-    function pdfOImagen(nombre, url, id) {
+    function pdfOImagen(nombre, url) {
         if (nombre.slice(-3) === "pdf") {
             return (
                 <div >
@@ -63,27 +81,50 @@ const AdminActualizarDatos = ({ enlace }) => {
         }
     }
 
+
+
     function mostrarContenido() {
 
         return (
             <div className="element-container">
                 {listAllData.map((item) => (
-                    <div className="element" key={item.id} onClick={() => { console.log("Holaa soy => ", item.id) }}>
+                    <div className="element" key={item.id}>
                         <>{pdfOImagen(item.nombre, item.url, item.id)}</>
                         <h3>{item.nombre}</h3>
                         <p> ID: {item.id}</p>
                         <p>#{item.filtros.join(" #")}</p>
                         <div>
                             <div>
-                                <button>EDITAR</button>
+                                <button onClick={() => openModal(item.id)}>EDITAR</button>
                             </div>
-                            <img src={imagenBorrar} alt="" className='imgDelete' onClick={() => HandleDelete(item.id)} />
+                            <img src={imagenBorrar} alt="" className='imgDelete' onClick={() => HandleDelete(item.id, item.Url, item.nombre)} />
                         </div>
+
+                        <Modal
+                            isOpen={showModal}
+                            onRequestClose={closeModal}
+                        >
+
+                            <img src={imagenCerrarModal} alt="Cerrar Modal" className="close-modal-button" onClick={() => closeModal()} />
+
+                            <div className='TituloEditar'>
+                                <h2>Editar</h2>
+                            </div>
+
+                            <div className='Editar'>
+                                <ActualizarArchivo oldData={item} />
+                            </div>
+                        </Modal>
+
                     </div>
                 ))}
             </div>
         );
     }
+
+
+
+
 
 
 

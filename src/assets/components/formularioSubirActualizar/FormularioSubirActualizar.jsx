@@ -1,41 +1,49 @@
 import '../../style/SubirStyle.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Dropzone from "../dropItem/Dropzone.jsx";
 
-
-const FormularioSubirActualizar = ({ addOrEdit, datafilter }) => {
-
-    const [selectedFile, setSelectedFile] = useState('');
-    const [curso, setcurso] = useState('');
-    const [asignatura, setAsignatura] = useState('');
-    const [filtros, setFiltros] = useState('');
+const FormularioSubirActualizar = ({ addOrEdit, datafilter, oldData }) => {
+    const [selectedFile, setSelectedFile] = useState("");
+    const [curso, setCurso] = useState("");
+    const [asignatura, setAsignatura] = useState("");
+    const [filtros, setFiltros] = useState("");
     const [listaFiltros, setListaFiltros] = useState([]);
 
+    useEffect(() => {
+        if (oldData) {
+            const resultado = '/'+ oldData.Url;
+            const partes = resultado.slice(1, -1).split("/");
+            setCurso(partes[0]);
+            setAsignatura(partes[1]);
+            setListaFiltros(oldData.filtros);
+        }
+    }, [oldData]);
+
     const handleChangeCurso = (cursoSelec) => {
-        setcurso(cursoSelec);
-    }
+        setCurso(cursoSelec);
+    };
 
     const handleChangeAsignatura = (asigSelect) => {
         setAsignatura(asigSelect);
-    }
+    };
 
     const handleFileSelection = (file) => {
         setSelectedFile(file);
-    }
+    };
 
     const handleChangeFiltro = (filtro) => {
         setFiltros(filtro);
-    }
-
+    };
 
     const handleGuardarFiltro = () => {
         if (filtros) {
-            setListaFiltros((prevListaFiltros) => [...prevListaFiltros, filtros]);
+            const filtroExistente = listaFiltros.find((filtro) => filtro === filtros);
+            if (!filtroExistente) {
+                setListaFiltros((prevListaFiltros) => [...prevListaFiltros, filtros]);
+            }
             setFiltros("");
         }
     };
-
-
 
 
     const handleEliminarFiltro = (filtro) => {
@@ -48,9 +56,11 @@ const FormularioSubirActualizar = ({ addOrEdit, datafilter }) => {
         e.preventDefault();
 
         try {
-            console.log(selectedFile, asignatura, curso, listaFiltros);
-            if (selectedFile === '' || asignatura === '' || curso === '' || listaFiltros.length > 0) {
-                const urlCreate = '/' + curso + '/' + asignatura + '/';
+            if (selectedFile && asignatura && curso && listaFiltros.length > 0) {
+                const urlCreate = curso + "/" + asignatura + "/";
+                if (oldData) {
+                    addOrEdit(selectedFile, urlCreate, listaFiltros, oldData);
+                }
                 addOrEdit(selectedFile, urlCreate, listaFiltros);
             } else {
                 alert("Faltan datos por introducir ... ");
@@ -59,26 +69,27 @@ const FormularioSubirActualizar = ({ addOrEdit, datafilter }) => {
             console.error(error);
             alert("Fallo interno al subir el archivo");
         }
-    }
+    };
 
     return (
-
         <div className="SubirData">
-
             <form>
-
-                <div className="dropZone" >
+                <div className="dropZone">
                     {selectedFile ? (
                         <div>
                             <p>Archivo seleccionado: {selectedFile.name}</p>
                             <p>Tamaño: {(selectedFile.size / 1024 / 1024).toFixed(2)} MB</p>
-                        </div>) : (
+                        </div>
+                    ) : (
                         <Dropzone onFileSelected={handleFileSelection} />
                     )}
                 </div>
 
-                <div className='Selector'>
-                    <select value={curso} onChange={(event) => handleChangeCurso(event.target.value)} >
+                <div className="Selector">
+                    <select
+                        value={curso}
+                        onChange={(event) => handleChangeCurso(event.target.value)}
+                    >
                         <option value="">Selecciona un curso</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -89,9 +100,12 @@ const FormularioSubirActualizar = ({ addOrEdit, datafilter }) => {
                     </select>
                 </div>
 
-                <div className='Selector'>
-                    <select value={asignatura} onChange={(event) => handleChangeAsignatura(event.target.value)} >
-                        <option value="">Seleciona una asignatura</option>
+                <div className="Selector">
+                    <select
+                        value={asignatura}
+                        onChange={(event) => handleChangeAsignatura(event.target.value)}
+                    >
+                        <option value="">Selecciona una asignatura</option>
                         <option value="Lengua">Lengua</option>
                         <option value="Matematicas">Matemáticas</option>
                         <option value="Sociales">Siencias Sociales</option>
@@ -102,9 +116,12 @@ const FormularioSubirActualizar = ({ addOrEdit, datafilter }) => {
                 </div>
 
                 {datafilter ? (
-                    <div className='Selector'>
-                        <select value={filtros} onChange={(event) => handleChangeFiltro(event.target.value)} >
-                            <option value="">Seleciona un filtro</option>
+                    <div className="Selector">
+                        <select
+                            value={filtros}
+                            onChange={(event) => handleChangeFiltro(event.target.value)}
+                        >
+                            <option value="">Selecciona un filtro</option>
                             {datafilter.map((option, index) => (
                                 <option key={index} value={option}>
                                     {option}
@@ -119,14 +136,18 @@ const FormularioSubirActualizar = ({ addOrEdit, datafilter }) => {
                     <p>Cargando...</p>
                 )}
 
-                <div className='containerFilter'>
+                <div className="containerFilter">
                     <div>
                         <h3>Lista de filtros seleccionados:</h3>
                     </div>
                     {listaFiltros.length > 0 ? (
-                        <div className='elementoFilterContainer'>
+                        <div className="elementoFilterContainer">
                             {listaFiltros.map((filtro, index) => (
-                                <div className='elementoFilter' key={index} onClick={() => handleEliminarFiltro(filtro)}>
+                                <div
+                                    className="elementoFilter"
+                                    key={index}
+                                    onClick={() => handleEliminarFiltro(filtro)}
+                                >
                                     {filtro}
                                 </div>
                             ))}
@@ -136,11 +157,10 @@ const FormularioSubirActualizar = ({ addOrEdit, datafilter }) => {
                     )}
                 </div>
 
-                <button onClick={handleSubmit}> SEND </button>
-
+                <button onClick={handleSubmit}>SEND</button>
             </form>
         </div>
-    )
-}
+    );
+};
 
-export default FormularioSubirActualizar; 
+export default FormularioSubirActualizar;

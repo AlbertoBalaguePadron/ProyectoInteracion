@@ -1,12 +1,18 @@
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  deleteObject,
+} from "firebase/storage";
 import {
   getFirestore,
   doc,
   getDoc,
   getDocs,
   collection,
-  query, 
-  where
+  query,
+  where,
 } from "firebase/firestore";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
@@ -26,28 +32,20 @@ const firebaseConfig = {
 export const app = firebase.initializeApp(firebaseConfig);
 const db = app.firestore();
 
-
-
-
 // guardar archivos en Storage
 export const storage = getStorage(app);
 
-export async function uploadFile(file, nombreArchivo) {
-  const storageRef = ref(storage, nombreArchivo);
+export async function uploadFile(file, rutaArchivo) {
+  const storageRef = ref(storage, rutaArchivo);
   await uploadBytes(storageRef, file);
   const url = await getDownloadURL(storageRef);
   return url;
 }
 
-
-
 /*Recoger datos de Firestore*/
 export async function getList() {
   const result = await db.collection("Filtros").get();
   return result;
-  // const list = await app.firestore().collection("Filtros").get();
-  // console.log(list);
-  // return list;
 }
 
 export async function getListByID(id) {
@@ -65,9 +63,8 @@ export async function getListByID(id) {
 
 export async function getAllList(link) {
   const queryCollection = collection(getFirestore(), "TablaURLS");
-  const queryFilter = query(queryCollection, where('Url', '==', link));
+  const queryFilter = query(queryCollection, where("Url", "==", link));
   const querySnapshot = await getDocs(queryFilter);
-
 
   const result = querySnapshot.docs.map((target) => ({
     id: target.id,
@@ -77,15 +74,36 @@ export async function getAllList(link) {
     filtros: target.data().filtros,
   }));
 
-  
   return result;
 }
 
-
-export async function dropDataMAterial(id){
-
-  db.collection('TablaURLS').doc(id).delete(); 
-  return true; 
-
+export async function dropDataMaterial(id, rutaArhivo, nombreArchivo) {
+  await db.collection("TablaURLS").doc(id).delete();
+  const desertRef = ref(storage, rutaArhivo + nombreArchivo);
+  deleteObject(desertRef)
+    .then(() => {})
+    .catch((error) => {});
+  return true;
 }
 
+export async function editDataBase(file, data, newData) {
+
+
+
+
+
+console.log(data);
+  const rutaEliminar = data.Url + data.nombre;
+  const refDrop = ref(storage, rutaEliminar);
+
+  await deleteObject(refDrop)
+    .then((response) => {})
+    .catch((error) => {});
+    
+    const url = await uploadFile(file, newData.Url + newData.nombre)
+
+    newData.url = url; 
+    await db.collection("TablaURLS").doc(data.id).update(newData)
+
+    window.location.reload(); 
+}

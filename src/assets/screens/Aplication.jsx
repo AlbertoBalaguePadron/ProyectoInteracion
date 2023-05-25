@@ -47,11 +47,10 @@ const Aplication = () => {
 
                 {/* Rutas ACtualizar  */}
                 <Route path="/Administrador/Select/:id" element={<AdminSelectorAsignatura enlace={'Administrador'} redireccion={'/Administrador/SelectEdit'} editar={'SI'} />}></Route>
-                <Route path="/Administrador/EditALL/:curso/:asignatura" element={<AdminActualizarDatos />} ></Route>
+                <Route path="/Administrador/EditALL/:curso/:asignatura" element={<AdminActualizarDatos enlace={'/Administrador/Tablas'} />} ></Route>
                 
             </Routes>
         </div>
     )
 }
-
 export default Aplication; 
