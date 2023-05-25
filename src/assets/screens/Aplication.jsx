@@ -11,6 +11,9 @@ import MenuAdminUser from "./MenuAdminUser.jsx";
 import MenuTables from "./MenuTables.jsx";
 import SignUpUser from "./SignUpUser.jsx";
 import UserTable from "./UserTable.jsx";
+import AdminEditor from './AdminEditor.jsx';
+import AdminActualizarDatos from './AdminActualizarDatos.jsx';
+import UsuarioSelector from "./UsuarioSelector.jsx";
 
 
 const Aplication = () => {
@@ -26,9 +29,12 @@ const Aplication = () => {
 
                 {/* Versión del Usuario */}
 
+                <Route path="/Usuario" element={<UsuarioSelector />} ></Route>
 
-                {/* MENU PRINCIPAL USUARIO */}
-
+                <Route path="/Usuario/Subir_Archivo" element={<SubirArchivo enlace={"Usuario"} />} ></Route>
+                <Route path="/Usuario/Select" element={<AdminSelectorCurso editarDescargar={editarDescargar} enlace={"Usuario"} />} ></Route>
+                <Route path="/Usuario/Select/:id" element={<AdminSelectorAsignatura enlace={'Usuario'} redireccion={"/Usuario/Select"} />}></Route>
+                <Route path="/Usuario/Select_Download/:curso/:asignatura" element={<AdminDescargarDatos enlace={'/Usuario'} />} ></Route>
                 <Route path="/usuario" element={<UserSelector />} ></Route>
 
                 {/* ACCIONES DE ARCHIVOS */}
@@ -40,6 +46,15 @@ const Aplication = () => {
 
                 {/* Versión del Administrador */}
 
+                <Route path="/Administrador" element={<AdministradorSelector setEditarDescargar={setEditarDescargar} />} ></Route>
+
+
+                <Route path="/Administrador/Tablas" element={<AdminEditor setEditarDescargar={setEditarDescargar} />} ></Route>
+
+                <Route path="/Administrador/Subir_Archivo" element={<SubirArchivo enlace={"Administrador"} />} ></Route>
+                <Route path="/Administrador/Select" element={<AdminSelectorCurso editarDescargar={editarDescargar} enlace={"Administrador"} />} ></Route>
+                <Route path="/Administrador/Select_Curso/:id" element={<AdminSelectorAsignatura enlace={'Administrador'} redireccion={'/Administrador/Select'} />}></Route>
+                <Route path="/Administrador/Select_Download/:curso/:asignatura" element={<AdminDescargarDatos enlace={'/Administrador'} />} ></Route>
                 <Route path="/administrador" element={<AdministradorSelector setEditarDescargar={setEditarDescargar} />} />
                 
 
@@ -54,27 +69,14 @@ const Aplication = () => {
                 <Route path="/Administrador/Select_Download/:curso/:asignatura" element={<AdminDescargarDatos enlace={'/Administrador'} />} />
 
 
-                {/* ******************** */}
 
-                {/* MENU PRINCIPAL ADMINISTRADOR */}
-                <Route path="/administrador" element={<AdministradorSelector setEditarDescargar={setEditarDescargar} />} />
-                
-                {/* ADMINISTRAR USUARIOS */}
-                <Route path="/administrador/tablas" element={<MenuTables/>} />
-                <Route path="/administrador/usuarios" element={<MenuAdminUser/>} />
-                <Route path="/administrador/usuarios/aniadirusuario" element={<SignUpUser/>} />
-                <Route path="/administrador/usuarios/verusuarios" element={<UserTable/>} />
-
-                {/* ADMINISTRAR ARCHIVOS */}
-                <Route path="/administrador/subir_Archivo" element={<SubirArchivo enlace={"administrador"}/>} ></Route>
-                <Route path="/administrador/select" element={<AdminSelectorCurso editarDescargar={editarDescargar} enlace={"administrador"} />} />
-                <Route path="/administrador/select_curso/:id" element={<AdminSelectorAsignatura enlace={'administrador'} redireccion={'/dministrador/select'} />} />
-                <Route path="/administrador/select_download/:curso/:asignatura" element={<AdminDescargarDatos enlace={'/administrador'} />} />
 
 
                 {/* Rutas ACtualizar  */}
-                {/* <Route path="/Administrador/Select/:curso/:asignatura" element={<AdminActualizarDatos />} ></Route> */}
+                <Route path="/Administrador/Select/:id" element={<AdminSelectorAsignatura enlace={'Administrador'} redireccion={'/Administrador/SelectEdit'} editar={'SI'} />}></Route>
+                <Route path="/Administrador/EditALL/:curso/:asignatura" element={<AdminActualizarDatos enlace={'/Administrador/Tablas'} />} ></Route>
                 
+
 
 
 
@@ -82,5 +84,4 @@ const Aplication = () => {
         </div>
     )
 }
-
 export default Aplication; 
