@@ -23,7 +23,7 @@ const AdminSelectorAsignatura = ({enlace, redireccion}) => {
 
                     {
                         asignaturaPorCurso.map((elto, idx) => (
-                            <Link to={`/${enlace}/Select_Download/${id}/${elto.url}`} className="QuitarEstiloEnlace" key={idx}>
+                            <Link to={`/${enlace}/select_download/${id}/${elto.url}`} className="QuitarEstiloEnlace" key={idx}>
                                 <div className="elemento">
                                     <p>{elto.title}</p>
                                 </div>
