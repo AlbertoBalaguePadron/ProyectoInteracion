@@ -19,45 +19,38 @@ const Aplication = () => {
     return (
         <div className="container">
             <Routes>
-                {/*  LOGIN  */}
+                {/* LOGIN */}
                 <Route path="/" element={<Login/>} />
 
-
-
-
-                {/* Versión del Usuario */}
-
+                {/* MENU PRINCIPAL USUARIO */}
                 <Route path="/usuario" element={<UserSelector />} ></Route>
 
+                {/* ACCIONES DE ARCHIVOS */}
                 <Route path="/usuario/subir_Archivo" element={<SubirArchivo enlace={"usuario"} />} />
                 <Route path="/usuario/select" element={<AdminSelectorCurso editarDescargar={editarDescargar} enlace={"usuario"}/>} />
                 <Route path="/usuario/select/:id" element={<AdminSelectorAsignatura enlace={'usuario'} redireccion={"/usuario/select"}/>} />
                 <Route path="/usuario/select_download/:curso/:asignatura" element={<AdminDescargarDatos enlace={'/usuario'}/>} ></Route>
 
+                {/* ******************** */}
 
-
-                {/* Versión del Administrador */}
-
+                {/* MENU PRINCIPAL ADMINISTRADOR */}
                 <Route path="/administrador" element={<AdministradorSelector setEditarDescargar={setEditarDescargar} />} />
                 
-                
-                <Route path="/administrador/tablas" element={<MenuTables />} ></Route>
-                <Route path="/administrador/usuarios" element={<MenuAdminUser/>}></Route>
+                {/* ADMINISTRAR USUARIOS */}
+                <Route path="/administrador/tablas" element={<MenuTables/>} />
+                <Route path="/administrador/usuarios" element={<MenuAdminUser/>} />
+                <Route path="/administrador/usuarios/aniadirusuario"  />
+                <Route path="/administrador/usuarios/verusuarios"  />
+
+                {/* ADMINISTRAR ARCHIVOS */}
                 <Route path="/administrador/subir_Archivo" element={<SubirArchivo enlace={"administrador"}/>} ></Route>
                 <Route path="/administrador/select" element={<AdminSelectorCurso editarDescargar={editarDescargar} enlace={"administrador"} />} />
                 <Route path="/administrador/select_curso/:id" element={<AdminSelectorAsignatura enlace={'administrador'} redireccion={'/dministrador/select'} />} />
                 <Route path="/administrador/select_download/:curso/:asignatura" element={<AdminDescargarDatos enlace={'/administrador'} />} />
 
-
-
-
                 {/* Rutas ACtualizar  */}
                 {/* <Route path="/Administrador/Select/:curso/:asignatura" element={<AdminActualizarDatos />} ></Route> */}
                 
-
-
-
-
             </Routes>
         </div>
     )

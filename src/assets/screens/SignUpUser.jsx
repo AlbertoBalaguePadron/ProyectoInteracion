@@ -4,7 +4,7 @@ import Cabecera from "./header/Cabecera.jsx";
 import logo from "../img/logo.png";
 import "../style/AddUser.css";
 
-function AddUser() {
+function SignUpUser() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -22,7 +22,7 @@ function AddUser() {
         setEmail("");
         setPassword("");
       })
-      .catch((error) => {
+      .catch(() => {
         setError("Error al crear la cuenta");
       });
   };
@@ -57,4 +57,4 @@ function AddUser() {
     </div>
   );
 }
-export default AddUser;
+export default SignUpUser;
