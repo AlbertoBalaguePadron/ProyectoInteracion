@@ -1,9 +1,9 @@
-import Cabecera from "./header/Cabecera.jsx";
+import Cabecera from "../header/Cabecera";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 
-const AdminEditor = ({setEditarDescargar}) => {
+const AdminEditor = ({setEditarDescargar, enlace}) => {
 
     const setEditar_Descargar = (data) => {
         setEditarDescargar(data)
@@ -11,7 +11,7 @@ const AdminEditor = ({setEditarDescargar}) => {
 
     return (
         <div className="container">
-            <Cabecera direcion={"/Administrador"} />
+            <Cabecera direcion={enlace} />
 
             <div className="bodySelector">
                 <Link to="/Administrador/UsuariosTabla" className="QuitarEstiloEnlace">

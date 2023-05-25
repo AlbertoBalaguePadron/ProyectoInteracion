@@ -1,11 +1,11 @@
-import FormularioSubirActualizar from '../components/formularioSubirActualizar/FormularioSubirActualizar.jsx';
-import '../style/SubirStyle.css';
+import FormularioSubirActualizar from '../formularioSubirActualizar/FormularioSubirActualizar.jsx';
+import '../../style/SubirStyle.css';
 import React, { useEffect, useState } from "react";
-import { dropDataMaterial, editDataBase, uploadFile } from '../api/ConfigFirebase.js';
-import { getList } from '../api/ConfigFirebase.js';
+import { dropDataMaterial, editDataBase, uploadFile } from '../../api/ConfigFirebase.js';
+import { getList } from '../../api/ConfigFirebase.js';
 
 
-const AtualizarArchivo = ({ oldData }) => {
+const UpdateFile = ({ oldData }) => {
 
     const [datafilter, setDatafilter] = useState();
 
@@ -26,7 +26,7 @@ const AtualizarArchivo = ({ oldData }) => {
     }, []);
 
     const editFile = async (file, urlCreate, filtros) => {
-        await editDataBase(file, 
+        await editDataBase(file,
             oldData,
             { Url: urlCreate, filtros: filtros, nombre: file.name, url: '' }
         )
@@ -42,4 +42,4 @@ const AtualizarArchivo = ({ oldData }) => {
     )
 }
 
-export default AtualizarArchivo; 
+export default UpdateFile; 

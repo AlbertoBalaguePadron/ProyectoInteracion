@@ -1,7 +1,7 @@
-import Cabecera from "./header/Cabecera.jsx";
+import Cabecera from "../../screens/header/Cabecera";
 import React from "react";
 import { Link } from "react-router-dom";
-import '../style/GlobalStyles.css';
+import '../../style/GlobalStyles.css';
 
 
 

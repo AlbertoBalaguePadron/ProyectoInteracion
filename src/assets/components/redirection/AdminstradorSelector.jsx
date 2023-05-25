@@ -1,4 +1,4 @@
-import Cabecera from "./header/Cabecera.jsx";
+import Cabecera from "../../screens/header/Cabecera";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 

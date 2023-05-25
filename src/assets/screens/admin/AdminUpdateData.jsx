@@ -1,14 +1,14 @@
-import '../style/EditStyle.css';
-import Cabecera from "./header/Cabecera.jsx";
+import '../../style/EditStyle.css';
+import Cabecera from "../header/Cabecera.jsx";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { getAllList, dropDataMaterial } from '../api/ConfigFirebase.js';
-import imagenBorrar from '../img/ImagenBorrar.png';
+import { getAllList, dropDataMaterial } from '../../api/ConfigFirebase.js';
+import imagenBorrar from '../../img/ImagenBorrar.png';
 import Modal from 'react-modal';
-import ActualizarArchivo from './ActualizarArchivo';
-import imagenCerrarModal from '../img/backToFuture.png'
+import UpdateFile from '../../components/Upload/UpdateFile';
+import imagenCerrarModal from '../../img/backToFuture.png'
 
-const AdminActualizarDatos = ({ enlace }) => {
+const AdminUpdateData = ({ enlace }) => {
 
     const { curso, asignatura } = useParams();
     const [listAllData, setListAllData] = useState();
@@ -112,7 +112,7 @@ const AdminActualizarDatos = ({ enlace }) => {
                             </div>
 
                             <div className='Editar'>
-                                <ActualizarArchivo oldData={item} />
+                                <UpdateFile oldData={item} />
                             </div>
                         </Modal>
 
@@ -142,4 +142,4 @@ const AdminActualizarDatos = ({ enlace }) => {
         </div>
     )
 }
-export default AdminActualizarDatos;
+export default AdminUpdateData;

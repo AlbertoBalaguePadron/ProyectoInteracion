@@ -1,4 +1,4 @@
-import Cabecera from "./header/Cabecera.jsx";
+import Cabecera from "../../screens/header/Cabecera.jsx";
 import { Link, useParams } from "react-router-dom";
 
 const AdminSelectorAsignatura = ({ enlace, redireccion, editar }) => {
@@ -14,7 +14,7 @@ const AdminSelectorAsignatura = ({ enlace, redireccion, editar }) => {
     ];
     let url2 = 'Select_Download'
     if (editar === 'SI') {
-        url2 = 'EditALL'; 
+        url2 = 'EditALL';
     }
 
     function contenido() {

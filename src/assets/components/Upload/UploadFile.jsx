@@ -1,18 +1,12 @@
-import FormularioSubirActualizar from '../components/formularioSubirActualizar/FormularioSubirActualizar';
-import '../style/SubirStyle.css';
-import Cabecera from "./header/Cabecera.jsx";
+import '../../style/SubirStyle.css';
+import FormularioSubirActualizar from '../formularioSubirActualizar/FormularioSubirActualizar';
+import Cabecera from "../../screens/header/Cabecera.jsx";
 import React, { useEffect, useState } from "react";
-import { app, uploadFile } from '../api/ConfigFirebase.js';
-import { getList } from '../api/ConfigFirebase.js'; 
+import { app, uploadFile } from '../../api/ConfigFirebase.js';
+import { getList } from '../../api/ConfigFirebase.js';
 
 
-const SubirArchivo = ({enlace}) => {
-
-
-    // const [selectedFile, setSelectedFile] = useState('');
-    // const [curso, setcurso] = useState('');
-    // const [asignatura, setAsignatura] = useState('');
-    // const [archivoUrl, setArchivoUrl] = useState('');
+const UploadFile = ({ enlace }) => {
 
     const [datafilter, setDatafilter] = useState();
 
@@ -51,4 +45,4 @@ const SubirArchivo = ({enlace}) => {
     )
 }
 
-export default SubirArchivo; 
+export default UploadFile; 

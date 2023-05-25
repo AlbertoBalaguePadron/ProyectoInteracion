@@ -1,11 +1,11 @@
-import '../style/DescargarStyle.css';
-import Cabecera from "./header/Cabecera.jsx";
+import '../../style/DescargarStyle.css';
+import Cabecera from "../header/Cabecera.jsx";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { getAllList } from '../api/ConfigFirebase.js';
+import { getAllList } from '../../api/ConfigFirebase.js';
 
 
-const AdminDescargarDatos = ({ enlace }) => {
+const AdminDownloadData = ({ enlace }) => {
 
     const { curso, asignatura } = useParams();
     const [listAllData, setListAllData] = useState();
@@ -84,4 +84,4 @@ const AdminDescargarDatos = ({ enlace }) => {
     )
 }
 
-export default AdminDescargarDatos;
+export default AdminDownloadData;
