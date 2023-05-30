@@ -15,7 +15,7 @@ import MenuAdminUser from "./admin/MenuAdminUser";
 
 const Aplication = () => {
 
-    const [editarDescargar, setEditarDescargar] = useState();
+    const [editDownload, setEditDownload] = useState();
 
     return (
         <div className="container">
@@ -31,17 +31,17 @@ const Aplication = () => {
                 <Route path="/user/uploadfile" element={<UploadFile enlace={"user"} />} />
 
                 { /*>> DESCARGAR ARCHIVOS <<*/ }
-                <Route path="/user/course" element={<SelectorCourse editarDescargar={editarDescargar} enlace={"user"} redireccion={"/user"} />} />
+                <Route path="/user/course" element={<SelectorCourse editarDescargar={editDownload} enlace={"user"} redireccion={"/user"} />} />
                 <Route path="/user/course/:id" element={<SelectorSubject enlace={'user'} redireccion={"/user/course"} />} />
                 <Route path="/user/download/:course/:subject" element={<DownloadData enlace={'/user'} />} />
 
                 {/* ADMIN */}
 
                 {/* MENU ADMIN */}
-                <Route path="/admin" element={<AdminSelector setEditarDescargar={setEditarDescargar} />} />
+                <Route path="/admin" element={<AdminSelector setEditarDescargar={setEditDownload} />} />
                 
                 { /*>> ADMINISTRAR TABLAS <<*/ }
-                <Route path="/admin/tables" element={<MenuAdminTables setEditarDescargar={setEditarDescargar} enlace={'/admin'} />} />
+                <Route path="/admin/tables" element={<MenuAdminTables setEditarDescargar={setEditDownload} enlace={'/admin'} />} />
                 
                 { /* EDITAR USUARIOS */ }
                 <Route path="/admin/tables/users" element={<MenuAdminUser/>} />
@@ -49,7 +49,7 @@ const Aplication = () => {
                 <Route path="/admin/tables/users/userstable" element={<UserTable/>} />
 
                 { /* EDITAR ARCHIVOS */ }
-                <Route path="/admin/course" element={<SelectorCourse editarDescargar={editarDescargar} enlace={"admin"} redireccion={"/admin"}/>} />
+                <Route path="/admin/course" element={<SelectorCourse editarDescargar={editDownload} enlace={"admin"} redireccion={"/admin"}/>} />
                 <Route path="/admin/course/:id" element={<SelectorSubject enlace={'admin'} redireccion={'/admin/course'} editar={'SI'} />} />
                 <Route path="/admin/edit/:course/:subject" element={<AdminUpdateData redireccion={'/admin/course'} />} />
 
@@ -57,7 +57,7 @@ const Aplication = () => {
                 <Route path="/admin/uploadfile" element={<UploadFile enlace={"admin"} />} />
 
                 { /*>> DESCARGAR ARCHIVOS <<*/ }
-                <Route path="/admin/download" element={<SelectorCourse editarDescargar={editarDescargar} enlace={"admin"} redireccion={"/admin"}/>} />
+                <Route path="/admin/download" element={<SelectorCourse editarDescargar={editDownload} enlace={"admin"} redireccion={"/admin"}/>} />
                 <Route path="/admin/download/:id" element={<SelectorSubject enlace={'admin'} redireccion={'/admin/download'} />} />
                 <Route path="/admin/download/:course/:subject" element={<DownloadData enlace={'/admin'} />} />
                 
