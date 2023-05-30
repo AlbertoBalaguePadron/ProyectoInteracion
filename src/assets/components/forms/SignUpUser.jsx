@@ -3,10 +3,10 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Cabecera from "../header/Cabecera.jsx";
 import "../../style/SignUpUser.css";
 
-function SignUpUser() {
+function SignUpUser({ handleNewEmail }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState(""); 
   const [success, setSuccess] = useState("");
 
   const auth = getAuth();
@@ -17,18 +17,19 @@ function SignUpUser() {
     setSuccess("");
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        setSuccess("¡Cuenta creada exitosamente!");
+        setSuccess("¡Account created successfully!");
+        handleNewEmail(email);
         setEmail("");
         setPassword("");
       })
       .catch(() => {
-        setError("Error al crear la cuenta");
+        setError("Error");
       });
   };
 
   return (
     <div className="container-signup">
-      <Cabecera direcion={"/admin/tables/users/"} />
+      <Cabecera direcion={"/admin/tables/users"} />
       {error && <p>{error}</p>}
       {success && <p>{success}</p>}
       <h3 className="signup-tittle"> Register a new user </h3>
