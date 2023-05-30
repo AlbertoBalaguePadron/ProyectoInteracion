@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { getAllList, dropDataMaterial } from "../../api/ConfigFirebase.js";
 import imagenBorrar from "../../img/ImagenBorrar.png";
 import Modal from "react-modal";
-import UpdateFile from "../../components/upload/UpdateFile";
+import UpdateFile from "../../components/Upload/UpdateFile";
 import imagenCerrarModal from "../../img/backToFuture.png";
 
 const AdminUpdateData = ({ redireccion }) => {

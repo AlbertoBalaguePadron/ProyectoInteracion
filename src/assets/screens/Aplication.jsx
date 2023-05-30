@@ -4,7 +4,7 @@ import AdminSelector from './admin/AdminSelector';
 import SelectorSubject from '../components/redirection/SelectorSubject.jsx';
 import SelectorCourse from '../components/redirection/SelectorCourse.jsx';
 import DownloadData from "../components/download/DownloadData";
-import UploadFile from '../components/upload/UploadFile.jsx';
+import UploadFile from '../components/Upload/UploadFile.jsx';
 import Login from "../components/forms/Login.jsx";
 import MenuAdminTables from "./admin/MenuAdminTables";
 import AdminUpdateData from "./admin/AdminUpdateData";
