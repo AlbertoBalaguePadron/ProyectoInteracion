@@ -1,6 +1,6 @@
 import "../../style/SubirStyle.css";
 import FormularioSubirActualizar from "../forms/FormularioSubirActualizar";
-import Cabecera from "../../screens/header/Cabecera.jsx";
+import Cabecera from "../header/Cabecera.jsx";
 import React, { useEffect, useState } from "react";
 import { app, uploadFile } from "../../api/ConfigFirebase.js";
 import { getList } from "../../api/ConfigFirebase.js";

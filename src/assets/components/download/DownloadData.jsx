@@ -1,5 +1,5 @@
 import "../../style/DescargarStyle.css";
-import Cabecera from "../../screens/header/Cabecera.jsx";
+import Cabecera from "../header/Cabecera.jsx";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { getAllList } from "../../api/ConfigFirebase.js";

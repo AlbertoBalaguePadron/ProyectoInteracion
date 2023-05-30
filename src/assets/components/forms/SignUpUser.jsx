@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import Cabecera from "../../screens/header/Cabecera.jsx";
+import Cabecera from "../header/Cabecera.jsx";
 import "../../style/SignUpUser.css";
 
 function SignUpUser() {

@@ -1,4 +1,4 @@
-import Cabecera from "../../screens/header/Cabecera.jsx";
+import Cabecera from "../header/Cabecera.jsx";
 import { Link, useParams } from "react-router-dom";
 
 const SelectorSubject = ({ enlace, redireccion, editar }) => {
