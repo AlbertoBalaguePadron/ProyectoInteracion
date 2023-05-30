@@ -42,7 +42,6 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 export { auth, signInWithEmailAndPassword, db, firebaseApp };
 
-
 // guardar archivos en Storage
 export const storage = getStorage(app);
 
