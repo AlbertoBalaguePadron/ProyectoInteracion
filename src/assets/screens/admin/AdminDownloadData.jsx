@@ -7,12 +7,12 @@ import { getAllList } from '../../api/ConfigFirebase.js';
 
 const AdminDownloadData = ({ enlace }) => {
 
-    const { curso, asignatura } = useParams();
+    const { course, subject } = useParams();
     const [listAllData, setListAllData] = useState();
     useEffect(() => {
         const recogerDatos = async () => {
             try {
-                const urlDirection =  curso + '/' + asignatura + '/';
+                const urlDirection =  course + '/' + subject + '/';
                 const allData = await getAllList(urlDirection);
                 setListAllData(allData);
 

@@ -8,9 +8,9 @@ import Modal from 'react-modal';
 import UpdateFile from '../../components/Upload/UpdateFile';
 import imagenCerrarModal from '../../img/backToFuture.png'
 
-const AdminUpdateData = ({ enlace }) => {
+const AdminUpdateData = ({ redireccion }) => {
 
-    const { curso, asignatura } = useParams();
+    const { course, subject } = useParams();
     const [listAllData, setListAllData] = useState();
     const [showModal, setShowModal] = useState(false);
     const [idTarget, setIdTarget] = useState();
@@ -30,7 +30,7 @@ const AdminUpdateData = ({ enlace }) => {
     useEffect(() => {
         const recogerDatos = async () => {
             try {
-                const urlDirection = curso + '/' + asignatura + '/';
+                const urlDirection = course + '/' + subject + '/';
                 const allData = await getAllList(urlDirection);
                 setListAllData(allData);
 
@@ -130,7 +130,7 @@ const AdminUpdateData = ({ enlace }) => {
 
     return (
         <div>
-            <Cabecera direcion={enlace} />
+            <Cabecera direcion={redireccion} />
 
             <div className="bodySelector">
                 {listAllData ? (

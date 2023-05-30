@@ -5,20 +5,20 @@ import '../../style/GlobalStyles.css';
 
 
 
-const AdminSelectorCurso = ({ editarDescargar, enlace }) => {
+const AdminSelectorCurso = ({ editarDescargar, enlace, redireccion }) => {
 
   let url = "";
   if (enlace === "user") {
 
-    url = "/user/select_curso/"
+    url = "/user/course/"
 
   } else if (enlace === "admin") {
 
-    if (editarDescargar === "Editar") {
-      url = "/admin/select/";
+    if (editarDescargar === "edit") {
+      url = "/admin/course/";
 
-    } else if (editarDescargar === "Descargar") {
-      url = "/admin/select_curso/";
+    } else if (editarDescargar === "download") {
+      url = "/admin/course/";
     }
 
   }
@@ -26,7 +26,7 @@ const AdminSelectorCurso = ({ editarDescargar, enlace }) => {
 
   return (
     <div className="container">
-      <Cabecera direcion={"/admin/tables"} />
+      <Cabecera direcion={redireccion} />
 
 
       <div className="TextCenter">Courses</div>

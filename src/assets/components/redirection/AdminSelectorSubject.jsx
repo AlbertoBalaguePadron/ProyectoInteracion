@@ -12,9 +12,9 @@ const AdminSelectorAsignatura = ({ enlace, redireccion, editar }) => {
         { id: 5, title: "Educación física", url: "Educacion_Fisica" },
         { id: 6, title: "Religión", url: "Religion" },
     ];
-    let url2 = 'Select_Download'
+    let url2 = 'download'
     if (editar === 'SI') {
-        url2 = 'EditALL';
+        url2 = 'edit';
     }
 
     function contenido() {

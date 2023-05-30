@@ -21,7 +21,7 @@ const AdminEditor = ({setEditarDescargar, enlace}) => {
                 </Link>
 
 
-                <Link to="/admin/Select" className="QuitarEstiloEnlace" >
+                <Link to="/admin/course" className="QuitarEstiloEnlace" >
                     <Button className="elemento" onClick={() => setEditar_Descargar("Editar")}>
                         Edit Files
                     </Button>

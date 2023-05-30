@@ -11,13 +11,13 @@ const UserSelector = () => {
 
             <div className="bodySelector">
 
-                <Link to="/user/subir_archivo" className="QuitarEstiloEnlace" >
+                <Link to="/user/uploadfile" className="QuitarEstiloEnlace" >
                     <Button className="elemento">
-                        Subir Archivo
+                    Upload File
                     </Button>
                 </Link>
 
-                <Link to="/user/select" className="QuitarEstiloEnlace" >
+                <Link to="/user/course" className="QuitarEstiloEnlace" >
                     <Button className="elemento">
                         Download File
                     </Button>

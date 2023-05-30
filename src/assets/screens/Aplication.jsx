@@ -30,31 +30,41 @@ const Aplication = () => {
                 {/* LOGIN */}
                 <Route path="/" element={<Login />} />
 
+                {/* USER */}
+                <Route path="/user" element={<UserSelector />} />
 
-                {/* Versión del Usuario */}
+                { /* SUBIR ARCHIVO */ }
+                <Route path="/user/uploadfile" element={<UploadFile enlace={"user"} />} />
+                <Route path="/user/course" element={<AdminSelectorCourse editarDescargar={editarDescargar} enlace={"user"} redireccion={"/user"} />} />
+                <Route path="/user/course/:id" element={<AdminSelectorSubject enlace={'user'} redireccion={"/user/course"} />} />
+                <Route path="/user/download/:course/:subject" element={<AdminDownloadData enlace={'/user'} />} />
 
-                <Route path="/user" element={<UserSelector />} ></Route>
-                <Route path="/user/subir_archivo" element={<UploadFile enlace={"user"} />} ></Route>
-                <Route path="/user/select" element={<AdminSelectorCourse editarDescargar={editarDescargar} enlace={"user"} />} ></Route>
-                <Route path="/user/select/:id" element={<AdminSelectorSubject enlace={'user'} redireccion={"/user/select"} />}></Route>
-                <Route path="/user/select_download/:curso/:asignatura" element={<AdminDownloadData enlace={'/user'} />} ></Route>
+                {/* ADMIN */}
 
-                {/* Versión del Administrador */}
-
-                <Route path="/admin" element={<AdministradorSelector setEditarDescargar={setEditarDescargar} />} ></Route>
-                <Route path="/admin/tables" element={<AdminEditor setEditarDescargar={setEditarDescargar} enlace={'/admin'} />} ></Route>
+                {/* MENU ADMIN */}
+                <Route path="/admin" element={<AdministradorSelector setEditarDescargar={setEditarDescargar} />} />
+                
+                { /*>> ADMINISTRAR TABLAS <<*/ }
+                <Route path="/admin/tables" element={<AdminEditor setEditarDescargar={setEditarDescargar} enlace={'/admin'} />} />
+                
+                { /* EDITAR USUARIOS */ }
                 <Route path="/admin/tables/users" element={<MenuAdminUser/>} />
                 <Route path="/admin/tables/users/addusers" element={<SignUpUser/>} />
                 <Route path="/admin/tables/users/userstable" element={<UserTable/>} />
 
+                { /* EDITAR ARCHIVOS */ }
+                <Route path="/admin/course" element={<AdminSelectorCourse editarDescargar={editarDescargar} enlace={"admin"} redireccion={"/admin"}/>} />
+                <Route path="/admin/course/:id" element={<AdminSelectorSubject enlace={'admin'} redireccion={'/admin/course'} editar={'SI'} />} />
+                <Route path="/admin/edit/:course/:subject" element={<AdminUpdateData redireccion={'/admin/course'} />} />
 
-                <Route path="/admin/uploadfile" element={<UploadFile enlace={"admin"} />} ></Route>
-                <Route path="/admin/select" element={<AdminSelectorCourse editarDescargar={editarDescargar} enlace={"admin"} />} ></Route>
-                <Route path="/admin/select_curso/:id" element={<AdminSelectorSubject enlace={'admin'} redireccion={'/admin/select'} />}></Route>
-                <Route path="/admin/select_download/:curso/:asignatura" element={<AdminDownloadData enlace={'/admin'} />} ></Route>
-                <Route path="/admin/select/:id" element={<AdminSelectorSubject enlace={'admin'} redireccion={'/admin/tablas'} editar={'SI'} />}></Route>
-                <Route path="/admin/editall/:curso/:asignatura" element={<AdminUpdateData enlace={'/admin/tablas'} />} ></Route>
+                { /*>> SUBIR ARCHIVOS <<*/ }
+                <Route path="/admin/uploadfile" element={<UploadFile enlace={"admin"} />} />
 
+                { /*>> DESCARGAR ARCHIVOS <<*/ }
+                <Route path="/admin/download" element={<AdminSelectorCourse editarDescargar={editarDescargar} enlace={"admin"} redireccion={"/admin"}/>} />
+                <Route path="/admin/download/:id" element={<AdminSelectorSubject enlace={'admin'} redireccion={'/admin/download'} />} />
+                <Route path="/admin/download/:course/:subject" element={<AdminDownloadData enlace={'/admin'} />} />
+                
             </Routes>
         </div>
     )
