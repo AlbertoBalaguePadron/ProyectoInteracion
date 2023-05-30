@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import Cabecera from "./header/Cabecera.jsx";
-import "../style/SignUpUser.css"
+import Cabecera from "../../screens/header/Cabecera.jsx";
+import "../../style/SignUpUser.css";
 
 function SignUpUser() {
   const [email, setEmail] = useState("");
@@ -33,7 +33,9 @@ function SignUpUser() {
       {success && <p>{success}</p>}
       <h3 className="signup-tittle"> Register a new user </h3>
       <form className="signup-form" onSubmit={handleSubmit}>
-        <label className="signup-label" htmlFor="email">Email:</label>
+        <label className="signup-label" htmlFor="email">
+          Email:
+        </label>
         <input
           className="input-signup"
           type="email"
@@ -41,7 +43,9 @@ function SignUpUser() {
           onChange={(event) => setEmail(event.target.value)}
         />
         <br />
-        <label className="signup-label" htmlFor="password">Password: </label>
+        <label className="signup-label" htmlFor="password">
+          Password:{" "}
+        </label>
         <input
           className="input-signup"
           type="password"

@@ -1,25 +1,25 @@
-import Cabecera from "./header/Cabecera.jsx";
+import Cabecera from "../header/Cabecera";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 
-const UserSelector = () => {
+const MenuAdminUser = () => {
 
     return (
         <div className="container">
-            <Cabecera direcion={"/user"} />
+            <Cabecera direcion={"/admin/tables"} />
 
             <div className="bodySelector">
 
-                <Link to="/user/uploadfile" className="QuitarEstiloEnlace" >
+                <Link to="/admin/tables/users/addusers" className="QuitarEstiloEnlace" >
                     <Button className="elemento">
-                    Upload File
+                        Add Users
                     </Button>
                 </Link>
 
-                <Link to="/user/course" className="QuitarEstiloEnlace" >
+                <Link to="/admin/tables/users/userstable" className="QuitarEstiloEnlace" >
                     <Button className="elemento">
-                        Download File
+                        Users Table
                     </Button>
                 </Link>
 
@@ -29,4 +29,4 @@ const UserSelector = () => {
 
 }
 
-export default UserSelector; 
+export default MenuAdminUser; 

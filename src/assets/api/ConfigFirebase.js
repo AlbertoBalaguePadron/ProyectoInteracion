@@ -20,12 +20,11 @@ import "firebase/compat/firestore";
 import "firebase/compat/storage";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-
-
 const firebaseConfig = {
   apiKey: "AIzaSyBJY3Thg20Kw6DKCnPThbZLeFkPk_x6BzM",
   authDomain: "proyectointegracion-c4fab.firebaseapp.com",
-  databaseURL: "https://proyectointegracion-c4fab-default-rtdb.europe-west1.firebasedatabase.app",
+  databaseURL:
+    "https://proyectointegracion-c4fab-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "proyectointegracion-c4fab",
   storageBucket: "proyectointegracion-c4fab.appspot.com",
   messagingSenderId: "288884124265",
@@ -36,13 +35,11 @@ const firebaseConfig = {
 export const app = firebase.initializeApp(firebaseConfig);
 const db = app.firestore();
 
-
 const auth = getAuth(app);
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 export { auth, signInWithEmailAndPassword, db, firebaseApp };
 
-// guardar archivos en Storage
 export const storage = getStorage(app);
 
 export async function uploadFile(file, rutaArchivo) {
@@ -52,7 +49,6 @@ export async function uploadFile(file, rutaArchivo) {
   return url;
 }
 
-/*Recoger datos de Firestore*/
 export async function getList() {
   const result = await db.collection("Filtros").get();
   return result;
@@ -84,7 +80,6 @@ export async function getAllList(link) {
     filtros: target.data().filtros,
   }));
 
-
   return result;
 }
 
@@ -98,21 +93,18 @@ export async function dropDataMaterial(id, rutaArhivo, nombreArchivo) {
 }
 
 export async function editDataBase(file, data, newData) {
-
-
-console.log(data);
+  console.log(data);
   const rutaEliminar = data.Url + data.nombre;
   const refDrop = ref(storage, rutaEliminar);
 
   await deleteObject(refDrop)
     .then((response) => {})
     .catch((error) => {});
-    
-    const url = await uploadFile(file, newData.Url + newData.nombre)
 
-    newData.url = url; 
-    await db.collection("TablaURLS").doc(data.id).update(newData)
+  const url = await uploadFile(file, newData.Url + newData.nombre);
 
-    window.location.reload(); 
+  newData.url = url;
+  await db.collection("TablaURLS").doc(data.id).update(newData);
+
+  window.location.reload();
 }
-

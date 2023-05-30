@@ -1,19 +1,19 @@
-import React from 'react';
-import Cabecera from "./header/Cabecera.jsx";
-import '../style/UserTable.css'; 
+import React from "react";
+import Cabecera from "../header/Cabecera.jsx";
+import "../../style/UserTable.css";
 
 const UserTable = () => {
   const userList = [
-    { email: 'sergio@gmail.com', typeAccount: 'Admin' },
-    { email: 'lilly@gmail.com', typeAccount: 'Regular user' },
-    { email: 'alberto@gmail.com', typeAccount: 'Regular user' },
+    { email: "sergio@gmail.com", typeAccount: "Admin" },
+    { email: "lilly@gmail.com", typeAccount: "Regular user" },
+    { email: "alberto@gmail.com", typeAccount: "Regular user" },
   ];
 
   return (
-    <div className='container-table-users'>
+    <div className="container-table-users">
       <Cabecera direcion={"/admin/tables/users"} />
-      <h3 className='tittle-table-users'>Users</h3>
-      <table className="user-table"> 
+      <h3 className="tittle-table-users">Users</h3>
+      <table className="user-table">
         <thead>
           <tr>
             <th>Email</th>

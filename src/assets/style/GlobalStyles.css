@@ -14,7 +14,7 @@
   margin-top: 15px;
 }
 
-.volver img{
+.volver img {
   width: 50px;
   height: 50px;
   margin-right: 20px;
@@ -37,15 +37,14 @@
 */
 
 .bodySelector {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    margin-top: 15vh;
-  }
-  
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 15vh;
+}
+
 .bodyDescarga {
   display: flex;
   flex-wrap: wrap;
@@ -54,28 +53,27 @@
   height: 100%;
 }
 
+.QuitarEstiloEnlace {
+  text-decoration: none;
+  color: white;
+}
 
-  .QuitarEstiloEnlace{
-    text-decoration: none;
-    color: white;
-  }
+.elemento {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #495764;
+  color: white;
+  width: 250px;
+  height: 200px;
+  margin: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+}
 
-  .elemento {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #495764;
-    color: white;
-    width: 250px;
-    height: 200px;
-    margin: 20px;
-    border-radius: 10px; 
-    font-size: 20px;
-  }
-
-  .TextCenter{
-    text-align: center;
-    font-weight: bold;
-    margin-top: 10vh; 
-    font-size: 40px;
-  }
+.TextCenter {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10vh;
+  font-size: 40px;
+}

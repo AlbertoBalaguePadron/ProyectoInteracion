@@ -29,22 +29,21 @@
   height: auto;
 }
 
-.imgDelete{
+.imgDelete {
   padding-top: 20px;
   height: 20px;
   width: 20px;
 }
 
-.TituloEditar{
+.TituloEditar {
   text-align: center;
   align-items: center;
 }
 
-.Editar{
+.Editar {
   text-align: center;
   align-items: center;
 }
-
 
 /*Boton de exit en el modal */
 
@@ -57,5 +56,4 @@
   background: none;
   border: none;
   cursor: pointer;
-  
 }
