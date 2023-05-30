@@ -4,13 +4,13 @@ import { Link, useParams } from "react-router-dom";
 const SelectorSubject = ({ enlace, redireccion, editar }) => {
   const { id } = useParams();
 
-  const asignaturaPorCurso = [
-    { id: 1, title: "Matemáticas", url: "Matematicas" },
-    { id: 2, title: "Lengua", url: "Lengua" },
-    { id: 3, title: "Sociales", url: "Sociales" },
-    { id: 4, title: "Naturales", url: "Naturales" },
-    { id: 5, title: "Educación física", url: "Educacion_Fisica" },
-    { id: 6, title: "Religión", url: "Religion" },
+  const subjectCourse = [
+    { id: 1, title: "Mathematics", url: "Matematicas" },
+    { id: 2, title: "Language", url: "Lengua" },
+    { id: 3, title: "Social Studies", url: "Sociales" },
+    { id: 4, title: "Natural Sciences", url: "Naturales" },
+    { id: 5, title: "Physical Education", url: "Educacion_Fisica" },
+    { id: 6, title: "Religion", url: "Religion" },
   ];
   let url2 = "download";
   if (editar === "SI") {
@@ -23,7 +23,7 @@ const SelectorSubject = ({ enlace, redireccion, editar }) => {
         <div className="TextCenter">Subject</div>
 
         <div className="bodySelector">
-          {asignaturaPorCurso.map((elto, idx) => (
+          {subjectCourse.map((elto, idx) => (
             <Link
               to={`/${enlace}/${url2}/${id}/${elto.url}`}
               className="QuitarEstiloEnlace"
