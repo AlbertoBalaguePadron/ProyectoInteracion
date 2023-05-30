@@ -7,17 +7,17 @@ const UserSelector = () => {
 
     return (
         <div className="container">
-            <Cabecera direcion={"/usuario"} />
+            <Cabecera direcion={"/user"} />
 
             <div className="bodySelector">
 
-                <Link to="/usuario/subir_archivo" className="QuitarEstiloEnlace" >
+                <Link to="/user/subir_archivo" className="QuitarEstiloEnlace" >
                     <Button className="elemento">
                         Subir Archivo
                     </Button>
                 </Link>
 
-                <Link to="/usuario/select" className="QuitarEstiloEnlace" >
+                <Link to="/user/select" className="QuitarEstiloEnlace" >
                     <Button className="elemento">
                         Download File
                     </Button>

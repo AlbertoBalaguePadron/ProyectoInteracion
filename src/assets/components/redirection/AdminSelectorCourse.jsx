@@ -8,17 +8,17 @@ import '../../style/GlobalStyles.css';
 const AdminSelectorCurso = ({ editarDescargar, enlace }) => {
 
   let url = "";
-  if (enlace === "User") {
+  if (enlace === "user") {
 
-    url = "/usuario/select_curso/"
+    url = "/user/select_curso/"
 
-  } else if (enlace === "administrador") {
+  } else if (enlace === "admin") {
 
     if (editarDescargar === "Editar") {
-      url = "/administrador/select/";
+      url = "/admin/select/";
 
     } else if (editarDescargar === "Descargar") {
-      url = "/administrador/select_curso/";
+      url = "/admin/select_curso/";
     }
 
   }
@@ -26,10 +26,10 @@ const AdminSelectorCurso = ({ editarDescargar, enlace }) => {
 
   return (
     <div className="container">
-      <Cabecera direcion={"/"+ enlace} />
+      <Cabecera direcion={"/admin/tables"} />
 
 
-      <div className="TextCenter"> Cursos</div>
+      <div className="TextCenter">Courses</div>
 
       <div className="bodySelector">
         <Link to={url + "1"} className="QuitarEstiloEnlace">

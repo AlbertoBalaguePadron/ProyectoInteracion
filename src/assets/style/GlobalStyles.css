@@ -9,15 +9,14 @@
 }
 
 .logo img {
-  width: 430px;
-  height: 110px;
+  width: 350px;
   margin-left: 15px;
   margin-top: 15px;
 }
 
 .volver img{
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   margin-right: 20px;
 }
 
@@ -67,7 +66,7 @@
     align-items: center;
     background-color: #495764;
     color: white;
-    width: 200px;
+    width: 250px;
     height: 200px;
     margin: 20px;
     border-radius: 10px; 

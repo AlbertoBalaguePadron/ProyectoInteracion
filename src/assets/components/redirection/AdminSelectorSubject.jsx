@@ -21,7 +21,7 @@ const AdminSelectorAsignatura = ({ enlace, redireccion, editar }) => {
         return (
             <div>
 
-                <div className="TextCenter">Asignatura</div>
+                <div className="TextCenter">Subject</div>
 
                 <div className="bodySelector" >
 

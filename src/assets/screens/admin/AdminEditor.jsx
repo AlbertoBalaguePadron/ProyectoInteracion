@@ -14,16 +14,16 @@ const AdminEditor = ({setEditarDescargar, enlace}) => {
             <Cabecera direcion={enlace} />
 
             <div className="bodySelector">
-                <Link to="/Administrador/UsuariosTabla" className="QuitarEstiloEnlace">
-                    <div className="elemento">
-                        <p>Usuarios</p>
-                    </div>
+                <Link to="/admin/tables/users" className="QuitarEstiloEnlace">
+                <Button className="elemento">
+                        Users
+                    </Button>
                 </Link>
 
 
-                <Link to="/Administrador/Select" className="QuitarEstiloEnlace" >
+                <Link to="/admin/Select" className="QuitarEstiloEnlace" >
                     <Button className="elemento" onClick={() => setEditar_Descargar("Editar")}>
-                        Editar Archivos 
+                        Edit Files
                     </Button>
                 </Link>
 

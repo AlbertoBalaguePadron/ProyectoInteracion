@@ -1,0 +1,31 @@
+.tittle-table-users {
+    margin-top: 5rem;
+}
+
+.user-table {
+    width: 50%;
+    margin: 0 auto; 
+    margin-top: 5rem; 
+    border-radius: 5rem;
+  }
+  
+  .user-table th {
+    padding: 12px;
+    text-align: center; 
+    border-bottom: 1px solid #ddd;
+    border-radius: 0.5rem;
+  }
+
+  .user-table td {
+    padding: 12px; 
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0.5rem;
+  }
+  
+  .user-table th {
+    background-color: #D9042B;
+    color: white;
+    font-weight: bold;
+  }
+  

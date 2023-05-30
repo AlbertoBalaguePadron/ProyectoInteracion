@@ -28,7 +28,7 @@ function SignUpUser() {
 
   return (
     <div className="container-signup">
-      <Cabecera direcion={"/administrador/opcionesusuarios"} />
+      <Cabecera direcion={"/admin/tables/users/"} />
       {error && <p>{error}</p>}
       {success && <p>{success}</p>}
       <h3 className="signup-tittle"> Register a new user </h3>

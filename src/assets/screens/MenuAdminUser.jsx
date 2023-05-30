@@ -1,4 +1,4 @@
-import Cabecera from "./header/Cabecera.jsx";
+import Cabecera from "./header/Cabecera";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
@@ -7,19 +7,19 @@ const MenuAdminUser = () => {
 
     return (
         <div className="container">
-            <Cabecera direcion={"/usuario"} />
+            <Cabecera direcion={"/admin/tables"} />
 
             <div className="bodySelector">
 
-                <Link to="/administrador/usuarios/aniadirusuario" className="QuitarEstiloEnlace" >
+                <Link to="/admin/tables/users/addusers" className="QuitarEstiloEnlace" >
                     <Button className="elemento">
-                        Añadir Usuario 
+                        Add Users
                     </Button>
                 </Link>
 
-                <Link to="/administrador/usuarios/verusuarios" className="QuitarEstiloEnlace" >
+                <Link to="/admin/tables/users/userstable" className="QuitarEstiloEnlace" >
                     <Button className="elemento">
-                        Tabla de Usuarios 
+                        Users Table
                     </Button>
                 </Link>
 
